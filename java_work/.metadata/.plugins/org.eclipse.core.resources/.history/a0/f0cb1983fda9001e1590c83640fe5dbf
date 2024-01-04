@@ -1,0 +1,21 @@
+package programmer;
+
+/*
+ * 첫 번째 분수의 분자와 분모를 뜻하는 numer1, denom1, 
+ * 두 번째 분수의 분자와 분모를 뜻하는 numer2, denom2가 매개변수로 주어집니다. 
+ * 두 분수를 더한 값을 기약 분수로 나타냈을 때 
+ * 분자와 분모를 순서대로 담은 배열을 return 하도록 solution 함수를 완성해보세요.
+ */
+
+public class sum {
+	public static void main(String[] args) {
+		int numer1 = 9; // 1분자
+		int denom1 = 2; // 1분모
+		int numer2 = 1; // 2분자
+		int denom2 = 3; // 2분모
+		int[] answer = {};
+		
+		// 분모들끼리 값이 같아야 계산가능(분모의 수를 각각 분자와 분모에 곱해주기)
+		// 분자와 분모의 약분(나머지가 0이 될떄까지 나누기)
+	}
+}

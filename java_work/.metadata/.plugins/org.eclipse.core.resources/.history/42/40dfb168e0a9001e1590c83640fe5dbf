@@ -1,0 +1,16 @@
+package programmer;
+
+public class sheep {
+	public static void main(String[] args) {
+		int n = 64;
+		int k = 6;
+		int answer = 0;
+         
+		 n = 12000 * n;
+		 k = (2000 * k) - (2000 * (n * 10 % 10 ));
+        	 
+	     answer = n + k;
+	     System.out.println(answer);
+	     
+	}
+}

@@ -1,0 +1,8 @@
+package programmer;
+
+public class pizza {
+	public static void main(String[] args) {
+		int n = 0;
+		int answer = 0;
+	}
+}

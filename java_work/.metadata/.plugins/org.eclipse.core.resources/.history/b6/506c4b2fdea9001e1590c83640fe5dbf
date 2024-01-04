@@ -1,0 +1,13 @@
+package ex03;
+
+public class Ex09 {
+	public static void main(String[] args) {
+		int a = 10;
+		int b = 20;
+		System.out.printf("a = %d, b = %d",a,b);
+		
+		int c = 300;
+		byte d = (byte)c;
+		System.out.println("c = %d, d = %d",c,d);
+	}
+}

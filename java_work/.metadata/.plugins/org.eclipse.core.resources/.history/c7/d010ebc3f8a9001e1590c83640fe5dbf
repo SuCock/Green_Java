@@ -1,0 +1,11 @@
+package programmer;
+
+public class sum {
+	public static void main(String[] args) {
+		int numer1 = 1;
+		int denom1 = 2;
+		int numer2 = 3;
+		int denom2 = 4;
+		int[] answer = {5, 4};
+	}
+}

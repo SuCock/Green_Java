@@ -1,0 +1,8 @@
+package programmer;
+
+public class delete {
+	public static void main(String[] args) {
+		String my_string = "";
+		String letter = "";
+	}
+}

@@ -1,0 +1,19 @@
+package ex02;
+
+import java.util.Scanner;
+
+/*숫자 두개를 입력받아 더한 값 출력하기*/
+
+public class Ex08 {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("첫 번째 수를 입력해주세요");
+		int a = scan.nextInt();
+		System.out.println("두 번째 수를 입력해주세요");
+		int b = scan.nextInt();
+		
+		int result = solution(num1 + num2);
+		
+		System.out.println("결과 " + result);
+	}
+}

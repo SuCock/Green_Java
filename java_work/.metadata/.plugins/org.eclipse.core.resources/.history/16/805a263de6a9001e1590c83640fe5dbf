@@ -1,0 +1,23 @@
+package ex04;
+
+import java.util.Scanner;
+
+public class Ex02 {
+	public static void main(String[] args) {
+		// && || ! & | ^ ~
+		
+		int a = 10;
+		int b = 20;
+		int c = 30;
+		
+		// 입력받은 값이 a와 b사이인지 확인하는 것을 출력
+		// a<15<b
+		Scanner sc = new Scanner(System.in);
+		System.out.println("비교할 숫자를 입력하세요.");
+		int num = sc.nextInt();
+		System.out.println(a<num && num<b);
+		
+		// 최소 공배수 최대 공약수...
+		// a > num || b > num
+	}
+}

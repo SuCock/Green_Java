@@ -1,0 +1,38 @@
+package ex02;
+
+public class Ex03 {
+	public static void main(String[] args) {
+//		// 정수 선언
+//		short k  = 20;
+//		int a = 10;
+//		// 실수 선언
+//		float b = 20.2f; // float는 f를 붙여줘야한다.
+//		double c = 20.33d; // double는 d를 붙여줘야한다.
+//		
+//		// 문자 문자열 선언
+//		char d = 'A'; // 문자 선언은 작은 따옴표
+//		String e = "안녕하세요"; // 문자열은 큰 따옴표
+//		
+//		System.out.println(a);
+//		System.out.println(b);
+//		System.out.println(c);
+//		System.out.println(d);
+//		System.out.println(e);
+//		System.out.println(k);
+//		
+		int[] numbers = {89,90,91,92,93,94,95,96,97,98,99};
+		double answer = 0;
+        double number2 = 0;
+        for(int i = 0; i <= numbers.length; i++){
+            number2 += i;
+            }  
+        answer = number2/(numbers.length);
+        if(answer*10 %10 == 0 || answer*10 %10 == 5){
+            System.out.println(answer);             
+        }else{
+        	System.out.println(Math.floor(answer)); 
+        }
+        
+	}
+
+}

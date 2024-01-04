@@ -1,0 +1,7 @@
+package programmer;
+
+public class centerNum {
+	public static void main(String[] args) {
+		int[] array = {};
+	}
+}

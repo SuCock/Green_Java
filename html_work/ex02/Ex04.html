@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            border: 5px solid palevioletred;
+            margin: 0 0 50px 0;
+        }
+        h2{
+            border: 5px solid pink;
+            /* margin: 25px 0 0 0; */
+        }
+        input{
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio consequuntur deserunt culpa hic accusamus praesentium, tempore ipsum ut quae eius impedit, corporis totam placeat suscipit nihil? Distinctio est quo at.</p>
+    <h1>Heading - 1</h1>
+    <h2 id="h2" style="background-color: bisque;">Heading - 2</h2>
+    <input id="input" type="text">
+    <button id="btn">search</button>
+</body>
+</html>
+<script>
+    document.getElementById('btn').onclick = function(){
+        alert(document.getElementById('input').value);
+        let inputValue = document.getElementById('input').value;
+        document.getElementById('h2').setAttribute('style',"padding:"+inputValue+"px;"+"background-color: plum;");
+    }
+</script>

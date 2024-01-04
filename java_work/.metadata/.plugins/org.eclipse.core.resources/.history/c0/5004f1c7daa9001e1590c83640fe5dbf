@@ -1,0 +1,13 @@
+package ex03;
+
+public class Ex07 {
+	public static void main(String[] args) {
+		char aa = 'A';
+		System.out.println(aa);
+		System.out.println((int)aa);
+		int bb = (int)aa;
+		System.out.println(bb);
+		char cc = (char)bb;
+		System.out.println(cc);
+	}
+}
