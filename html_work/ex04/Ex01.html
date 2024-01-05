@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <style>
         *{
-            color: red;
+            color: plum;
+            border: 3px double rgb(163, 58, 211);
         }
     </style>
 </head>
@@ -15,3 +17,8 @@
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum pariatur, id officiis distinctio quia eius totam blanditiis quisquam laboriosam necessitatibus vitae consectetur velit laudantium, architecto nesciunt. Fugiat blanditiis nam molestias?</p>
 </body>
 </html>
+<script>
+    $(document).ready(function(){
+        $('*').css('padding', '30px')
+    });
+</script>
