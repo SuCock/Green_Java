@@ -6,7 +6,7 @@ class OperatorEx31 {
 		int mask = 0xF;
 
 		System.out.printf("hex=%X%n", hex);
-		System.out.printf("%X%n", hex & mask);
+		System.out.printf("%X%n", hex & mask); // 전자개발에서 쓴다(2진법이나 16진법이 편함)
 		
 		hex = hex >> 4;
 		System.out.printf("%X%n", hex & mask);

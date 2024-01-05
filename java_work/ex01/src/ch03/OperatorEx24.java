@@ -1,8 +1,10 @@
 package ch03;
 class OperatorEx24 {
+	// 문자는 유니코드로 변경 되기 때문에 < > <= >= 됩니다.
+	// 문자열은 유니코드로 변경 안되기 때문에 안됩니다.
 	public static void main(String args[]) { 
 		int  x = 0;
-		char ch = ' ';
+		char ch = ' '; // ''은 정말 없는거 ' '은 공백이 있는거
 
 		x = 15;
 		System.out.printf("x=%2d, 10 < x && x < 20 =%b\n", x, 10 < x && x < 20);
