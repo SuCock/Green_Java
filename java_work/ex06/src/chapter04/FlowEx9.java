@@ -6,11 +6,11 @@ class FlowEx9 {
 		int score  = 0;
 		char grade = ' ';
 
-		System.out.print("����� ������ �Է��ϼ���.(1~100)>");
+		System.out.print("점수를 입력해주세요.(1~100)>");
 
 		Scanner scanner = new Scanner(System.in);
-		String tmp = scanner.nextLine(); // ȭ���� ���� �Է¹��� ������ tmp�� ����
-		score = Integer.parseInt(tmp);   // �Է¹��� ���ڿ�(tmp)�� ���ڷ� ��ȯ
+		String tmp = scanner.nextLine(); 
+		score = Integer.parseInt(tmp);   
 
 		switch(score) {
 			case 100: case 99: case 98: case 97: case 96:
@@ -30,8 +30,8 @@ class FlowEx9 {
 				break;
 			default :
 				grade = 'F';
-		} // end of switch
+		} 
 
-		System.out.println("����� ������ "+ grade +"�Դϴ�.");
-	} // main�� ��
+		System.out.println("귀하의 성적은 "+ grade + "입니다.");
+	} 
 }

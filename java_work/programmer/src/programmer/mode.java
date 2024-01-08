@@ -15,7 +15,6 @@ public class mode {
 		// 전에수와 비교해서 같으면 대입(중복되는 수가 붙어있지 않다면 어떡해 해야하지)
 		// 최빈값이 복수로 들어간다는 가정을 할려면 배열에 담아서 -1을 리턴해야한다
 		// 중복되는 수를 카운팅해서 같아지면 -1를 리턴한다
-		// 첫번째값은 answer와 비교한다
 		for(int i = 0; i<array.length-1; i++) {
 			if(array[i] == array[1+i]) {
 				answer = array[i];

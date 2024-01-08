@@ -6,24 +6,28 @@ class FlowEx8 {
 		char gender;
 		String regNo = "";
 
-		System.out.print("����� �ֹι�ȣ�� �Է��ϼ���.(011231-1111222)>");
-
 		Scanner scanner = new Scanner(System.in);
+		System.out.println("주민등록 번호를 입력해주세요.");
 		regNo = scanner.nextLine();
 
-		gender = regNo.charAt(7); // �Է¹��� ��ȣ�� 8��° ���ڸ� gender�� ����
+		gender = regNo.charAt(7); 
 
 		switch(gender) {
 			case '1':
+				System.out.println("2000년대 이전의 남자입니다.");
+				break;
 			case '3':
-				System.out.println("����� �����Դϴ�.");
+				System.out.println("2000년대 이후의 남자입니다.");
 				break;
 			case '2':
+				System.out.println("2000년대 이전의 여자입니다.");
+				break;
 			case '4':
-				System.out.println("����� �����Դϴ�.");
+				System.out.println("2000년대 이후의 여자입니다.");
 				break;
 			default:
-				System.out.println("��ȿ���� ���� �ֹε�Ϲ�ȣ�Դϴ�.");;
+				System.out.println("아닐때 이쪽으로");
 		}
-	} // main�� ��
+	}
 }
+	
