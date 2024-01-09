@@ -12,26 +12,54 @@ import java.util.Arrays;
 public class mode {
 	public static void main(String[] args) {
 		int [] array = {1,1,2,2};
-		int [] countA = new int [array.length];// 숫자의 갯수들을 저장할곳
-		int count = 0;
-		int temp = 0;
-		int answer = 0;
-		Arrays.sort(array);
-		// sort정렬
-		// 최빈값이 복수로 들어간다는 가정을 할려면 배열에 담아서 -1을 리턴해야한다
-		// 중복되는 수를 카운팅해서 같아지면 -1를 리턴한다
-		// for문을 두개 사용해서 배열의 숫자들의 갯수를 새로운 배열에 넣어준다
-		for( int i = 0; i < array.length; i++) {
-			for(int j = i; j < array.length+1; j++) {
-				if(array[i] == array[j]) {
-					temp = array[i];
-					System.out.println(temp);
-				}
-			}
-			countA[i] = temp;
-			System.out.println(Arrays.toString(countA));
-				
-		}
+		int answer = array[0];          // 배열 중 제일 첫번째 값을 maxNum으로 초기설정 -> 1
+        int max = 0;                    // 값을 담기 위한 변수 초기화 -> 0
+        int frequent[] = new int[1000]; // array 길이 초기설정
+        
+        for(int i = 0; i < array.length ; i++) {
+            /* i = 0 -> array[0] -> 1   -----
+               frequent[1] -> 1              |
+                                        동일한 방이 두 번 발견됨
+               i = 1 -> array[1] -> 1        |
+               frequent[1] -> 2         -----
+               
+               i = 2 -> array[2] -> 2   -----
+               frequent[2] -> 1              |
+                                        동일한 방이 두 번 발견됨
+               i = 3 -> array[3] -> 2        |
+               frequent[2] -> 2        -----
+            */
+            frequent[array[i]]++;
+            
+            /* max 초기값 -> 0
+               0 < frequent[0] (0) : false
+               0 < frequent[1] (2) : true : { max = 2, answer = 1 };
+               2 < frequent[2] (2) : false
+            */
+            if(max < frequent[array[i]]) {
+                max = frequent[array[i]];
+                answer = array[i];
+            }
+            // 최종 : max = 2, answer = 1;
+        };
+        
+        int MultipleOrNot = 0;  // 여러개인지 확인하기 위한 변수 선언
+        for(int i = 0 ; i < 1000 ; i++) {
+            /* 2 == frequent[0] (0) : false
+               2 == frequent[1] (2) : ture
+               2 == frequent[2] (2) : ture
+            */
+            if(max == frequent[i]) {
+                // 2
+                MultipleOrNot++;
+            }
+            // MultipleOrNot이 1보다 크면 answer 값 -1로 지정
+            // 2 > 1
+            if(MultipleOrNot > 1) {
+                answer = -1;
+            }
+        };
+        System.out.println(answer);
 		
 	}
 }
