@@ -6,7 +6,7 @@ class FlowEx25 {
 		int num = 0; 
 		int sum = 0;
 
-		System.out.print("���ڸ� �Է��ϼ���.(��:12345)>");
+		System.out.print("숫자입력 :12345)>");
 		Scanner scanner = new Scanner(System.in);
 		String tmp = scanner.nextLine(); // ȭ���� ���� �Է¹��� ������ tmp�� ����
 		num = Integer.parseInt(tmp);      // �Է¹��� ���ڿ�(tmp)�� ���ڷ� ��ȯ

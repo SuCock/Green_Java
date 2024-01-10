@@ -10,18 +10,18 @@ class FlowEx28 {
 		Scanner scanner = new Scanner(System.in);
 
 		do {
-			System.out.print("1�� 100������ ������ �Է��ϼ���.>");
+			System.out.print("1에서 100사이의 수.>>>>>>>>>");
 
 			String tmp = scanner.nextLine();
 			input = Integer.parseInt(tmp);
 
 			if(input > answer) {
-				System.out.println("�� ���� ���� �ٽ� �õ��غ�����.");	
+				System.out.println("다운.");	
 			} else if(input < answer) {
-				System.out.println("�� ū ���� �ٽ� �õ��غ�����.");			
+				System.out.println("업.");			
 			}
 		} while(input!=answer);
 
-		System.out.println("�����Դϴ�.");
+		System.out.println("종료.");
 	}
 }
