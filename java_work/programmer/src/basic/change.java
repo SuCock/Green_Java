@@ -8,6 +8,7 @@ public class change {
 		Scanner sc = new Scanner(System.in);
         String a = sc.next();
         String answer = "";
+        
         char[] aa = a.toCharArray();
         for (int i = 0; i < aa.length; i++) {
         	if( aa[i] >= 65 && aa[i] <= 90) {

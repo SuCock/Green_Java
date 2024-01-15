@@ -11,5 +11,6 @@ public class strInStr {
 		}else {
 			answer = 2;
 		}
+		System.out.println(answer);
 	}
 }
