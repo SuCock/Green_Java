@@ -10,7 +10,13 @@ public class Person {
 	String phone;
 	String gender;
 	String remark;
+	int age;
 	
+	public void initValue(String name, int age String gedner) {
+		this.name = name;
+		this.age = age;
+		this.gender = genmder;
+	}
 	// 생성자
 	public Person() {
 //		System.out.println("기본 생성자");
