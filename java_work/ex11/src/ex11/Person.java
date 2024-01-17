@@ -12,10 +12,10 @@ public class Person {
 	String remark;
 	int age;
 	
-	public void initValue(String name, int age String gedner) {
+	public void initValue(String name, int age, String gedner) {
 		this.name = name;
 		this.age = age;
-		this.gender = genmder;
+		this.gender = gedner;
 	}
 	// 생성자
 	public Person() {
