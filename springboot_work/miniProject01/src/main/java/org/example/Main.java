@@ -20,6 +20,8 @@ public class Main {
         System.out.println("비밀번호를 입력하세요 > ");
         String password = sc.nextLine();
 
-        md.insert(email, name, addr, password);
+        md.insert(email, name, password, addr);
+
+        md.insert(member);
     }
 }
