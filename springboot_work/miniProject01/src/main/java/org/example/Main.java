@@ -1,6 +1,8 @@
 package org.example;
 
+import org.example.mh.Member;
 import org.example.mh.MemberDB;
+import org.example.util.myCLI;
 
 import java.util.Scanner;
 
@@ -9,19 +11,33 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         MemberDB md = new MemberDB();
+
+        while (true) {
+            int select = printMenu();
+
+            if (select == 1) {
+                md.insert();
+
+            } else if(select == 2){
+              md.login();
+
+            } else if(select == 6){
+                System.out.println("종료됩니다.");
+                System.exit(0);
+            }
+        }
+    }
+    public static int printMenu() {
+        System.out.println("1. 회원가입");
+        System.out.println("2. 로그인");
+        System.out.println("3. 물품보기");
+        System.out.println("4. 장바구니");
+        System.out.println("5. 주문목록");
+        System.out.println("6. 종료");
+
         Scanner sc = new Scanner(System.in);
+        int menu = sc.nextInt();
 
-        System.out.println("이메일을 입력하세요 > ");
-        String email = sc.nextLine();
-        System.out.println("주소를 입력하세요 > ");
-        String addr = sc.nextLine();
-        System.out.println("이름을 입력하세요 > ");
-        String name = sc.nextLine();
-        System.out.println("비밀번호를 입력하세요 > ");
-        String password = sc.nextLine();
-
-        md.insert(email, name, password, addr);
-
-        md.insert(member);
+        return menu;
     }
 }
