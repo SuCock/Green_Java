@@ -10,10 +10,11 @@ import java.sql.ResultSet;
 
 public class MemberDB {
     private myCLI cli = new myCLI();
+
     public void insert() {
         Member member = cli.inputMember();
         boolean result = findByEmail(member.getEmail());
-        if(!result) {
+        if (!result) {
             try {
                 Connection conn = DriverManager.getConnection(DBInfo.url, DBInfo.user, DBInfo.password);
                 PreparedStatement pstmt = conn.prepareStatement("INSERT INTO member " +
@@ -54,7 +55,7 @@ public class MemberDB {
         return false;
     }
 
-    public void login() {
+    public Member login() {
         Member member = cli.loginMember();
         try {
             Connection conn = DriverManager.getConnection(DBInfo.url, DBInfo.user, DBInfo.password);
@@ -62,30 +63,16 @@ public class MemberDB {
             pstmt.setString(1, member.getEmail());
             pstmt.setString(2, member.getPassword());
             ResultSet rs = pstmt.executeQuery();
-
-
+            if (rs.next()) {
+                System.out.println(rs.getString("role"));
+                member.setRole(rs.getString("role"));
+                return member;
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
 
