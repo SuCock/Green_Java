@@ -9,5 +9,6 @@ public class Login {
     public static boolean login;
     public static String getRole(){
         return member.getRole();
+
     }
 }
