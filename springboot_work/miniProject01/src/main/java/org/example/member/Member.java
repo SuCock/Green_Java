@@ -1,4 +1,4 @@
-package org.example.mh;
+package org.example.member;
 import lombok.*;
 
 @Setter

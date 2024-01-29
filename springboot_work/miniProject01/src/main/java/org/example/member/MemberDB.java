@@ -1,7 +1,6 @@
-package org.example.mh;
+package org.example.member;
 
 import org.example.DBInfo;
-import org.example.util.myCLI;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class MemberDB {
-    private myCLI cli = new myCLI();
+    private MemberCLI cli = new MemberCLI();
 
     public void insert() {
         Member member = cli.inputMember();
@@ -67,6 +66,8 @@ public class MemberDB {
                 System.out.println(rs.getString("role"));
                 member.setRole(rs.getString("role"));
                 return member;
+            }else{
+                System.out.println("로그인 실패 > 이메일과 페스워드를 확인하세요.");
             }
         } catch (Exception e) {
             e.printStackTrace();

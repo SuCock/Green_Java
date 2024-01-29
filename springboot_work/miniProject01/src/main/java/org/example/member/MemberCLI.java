@@ -1,10 +1,8 @@
-package org.example.util;
-
-import org.example.mh.Member;
+package org.example.member;
 
 import java.util.Scanner;
 
-public class myCLI {
+public class MemberCLI {
     public Member inputMember(){
         Scanner sc = new Scanner(System.in);
         System.out.println("이메일을 입력하세요 > ");
