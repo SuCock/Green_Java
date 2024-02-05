@@ -20,7 +20,7 @@ public class MemberDB {
                         "(reg_time, update_time, created_by, modified_by, address, email, name, password, role) " +
                         "values" +
                         "(now(), now(), '', '', ?, ?, ?, ?, 'admin'");
-                pstmt.setString(1, member.getAddr());
+                pstmt.setString(1, member.getAddress());
                 pstmt.setString(2, member.getEmail());
                 pstmt.setString(3, member.getName());
                 pstmt.setString(4, member.getPassword());
@@ -63,8 +63,10 @@ public class MemberDB {
             pstmt.setString(2, member.getPassword());
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
-                System.out.println(rs.getString("role"));
                 member.setRole(rs.getString("role"));
+                member.setMember_id(rs.getLong("member_id"));
+                member.setAddress(rs.getString("address"));
+                member.setName(rs.getString("name"));
                 return member;
             }else{
                 System.out.println("로그인 실패 > 이메일과 페스워드를 확인하세요.");

@@ -19,7 +19,7 @@ public class MemberCLI {
                 .email(email)
                 .password(password)
                 .name(name)
-                .addr(addr)
+                .address(addr)
                 .build();
     }
     public Member loginMember(){
