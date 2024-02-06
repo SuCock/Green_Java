@@ -61,7 +61,12 @@ public class ItemDB {
                                 )
                 );
             }
-            System.out.println(list);
+            for(int i = 0; i < list.size(); i++){
+                System.out.println(list.get(i).getItem_id() + "\t");
+                System.out.println(list.get(i).getItem_nm() + "\t");
+                System.out.println(list.get(i).getItem_sell_status() + "\t");
+                System.out.println(list.get(i).getItem_detail() + "\t");
+            }
         }catch (Exception e){
             e.printStackTrace();
         }finally {

@@ -1,29 +1,25 @@
 package org.example;
 
-import org.example.cart.Cart;
 import org.example.cart.CartDB;
 import org.example.item.ItemDB;
 import org.example.member.Member;
 import org.example.member.MemberDB;
 import org.example.order.OrderDB;
 import org.example.util.Login;
-
-import java.sql.SQLException;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
+    // 회원 관리 DB
+    public static MemberDB md = new MemberDB();
+    // 상품 관리 DB
+    public static ItemDB id = new ItemDB();
+    // 장바구니 관리 DB
+    public static CartDB cd = new CartDB();
+    // 주문 관리 DB
+    public static OrderDB od = new OrderDB();
     public static void main(String[] args) {
-        // 회원 관리 DB
-        MemberDB md = new MemberDB();
-        // 상품 관리 DB
-        ItemDB id = new ItemDB();
-        // 장바구니 관리 DB
-        CartDB cd = new CartDB();
-        // 주문 관리 DB
-        OrderDB od = new OrderDB();
-
         // 선택
         while (true) {
             int select = 0;
@@ -68,6 +64,10 @@ public class Main {
                         int cartSelect = printMenuCart();
                         if(cartSelect == 1){
                             cd.insert();
+                            // 장바구니 아이템 넣는 로직
+                            // 없는 상품을 선택학시 등록 종료
+                            // 아니면 상품 보여주면서 계속 상품 등록
+                            cd.insertItem();
                         }else if(cartSelect == 5){
                             System.out.println("장바구니를 종료합니다.");
                             break;

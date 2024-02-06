@@ -13,4 +13,5 @@ public class Login {
     public static String getName(){
         return member.getName();
     }
+
 }
