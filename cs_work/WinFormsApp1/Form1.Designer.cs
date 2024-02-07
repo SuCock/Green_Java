@@ -32,8 +32,8 @@
             button1 = new Button();
             button2 = new Button();
             bindingSource1 = new BindingSource(components);
-            listBox1 = new ListBox();
             dataGridView1 = new DataGridView();
+            listView1 = new ListView();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -60,16 +60,6 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
-            // listBox1
-            // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(80, 28);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(255, 289);
-            listBox1.TabIndex = 2;
-            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
-            // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -79,13 +69,21 @@
             dataGridView1.TabIndex = 3;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
             // 
+            // listView1
+            // 
+            listView1.Location = new Point(71, 28);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(335, 289);
+            listView1.TabIndex = 4;
+            listView1.UseCompatibleStateImageBehavior = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(listView1);
             Controls.Add(dataGridView1);
-            Controls.Add(listBox1);
             Controls.Add(button2);
             Controls.Add(button1);
             Name = "Form1";
@@ -100,7 +98,7 @@
         private Button button1;
         private Button button2;
         private BindingSource bindingSource1;
-        private ListBox listBox1;
         private DataGridView dataGridView1;
+        private ListView listView1;
     }
 }

@@ -25,24 +25,31 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            conn = new OracleConnection(strConnection);
+            try {
+                conn = new OracleConnection(strConnection);
 
-            //cmd = new OracleCommand();
-            //cmd.Connection = conn;
+                //cmd = new OracleCommand();
+                //cmd.Connection = conn;
 
-            conn.Open(); // database 열기
+                conn.Open(); // database 열기
 
-            DataSet dataSet = new DataSet();
-            String sql = "SELECT * FROM emp";
+                DataSet dataSet = new DataSet();
+                String sql = "SELECT * FROM emp";
 
-            OracleDataAdapter adapter = new OracleDataAdapter();    
-            adapter.SelectCommand = new OracleCommand(sql, conn); // sql의 쿼리문과 conn 오라클과 연결하는 걸 넘겨라
-            adapter.Fill(dataSet); // datdaSet을 채워라
+                OracleDataAdapter adapter = new OracleDataAdapter(); // 어댑터를 가지고 connention을 제어한다 -> close를 안해도된다.
+                adapter.SelectCommand = new OracleCommand(sql, conn); // sql의 쿼리문과 conn 오라클과 연결하는 걸 넘겨라
+                adapter.Fill(dataSet); // datdaSet을 채워라
 
-            conn.Close(); // database 닫기
+                dataGridView1.DataSource = dataSet.Tables[0]; // GridView에 데이터를 넣어라
+                
+
+                conn.Close(); // database 닫기
+            }
+            catch (Exception ex) {
+                Console.WriteLine(ex.ToString());
+            }
             //MessageBox.Show("Test" + strConnection);
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
 
