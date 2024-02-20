@@ -57,6 +57,7 @@ namespace ex240220
            // fc.write(textBox1.Text, list);
 
             ftdb.insert(textBox1.Text);
+            // 입력 후 조회
             List<string> list2 = ftdb.read();
 
             // null로 한번 치환해야지 들어가진다

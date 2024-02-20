@@ -5,7 +5,6 @@ D:\Students\cs_work\Practice\bin\Debug\net8.0-windows\Practice.dll
 D:\Students\cs_work\Practice\bin\Debug\net8.0-windows\Practice.pdb
 D:\Students\cs_work\Practice\bin\Debug\net8.0-windows\Oracle.ManagedDataAccess.dll
 D:\Students\cs_work\Practice\obj\Debug\net8.0-windows\Practice.csproj.AssemblyReference.cache
-D:\Students\cs_work\Practice\obj\Debug\net8.0-windows\Practice.Form1.resources
 D:\Students\cs_work\Practice\obj\Debug\net8.0-windows\Practice.csproj.GenerateResource.cache
 D:\Students\cs_work\Practice\obj\Debug\net8.0-windows\Practice.GeneratedMSBuildEditorConfig.editorconfig
 D:\Students\cs_work\Practice\obj\Debug\net8.0-windows\Practice.AssemblyInfoInputs.cache
@@ -22,3 +21,5 @@ D:\Students\cs_work\Practice\bin\Debug\net8.0-windows\System.DirectoryServices.P
 D:\Students\cs_work\Practice\bin\Debug\net8.0-windows\runtimes\linux\lib\net6.0\System.DirectoryServices.Protocols.dll
 D:\Students\cs_work\Practice\bin\Debug\net8.0-windows\runtimes\osx\lib\net6.0\System.DirectoryServices.Protocols.dll
 D:\Students\cs_work\Practice\bin\Debug\net8.0-windows\runtimes\win\lib\net6.0\System.DirectoryServices.Protocols.dll
+D:\Students\cs_work\Practice\obj\Debug\net8.0-windows\Practice.Request.resources
+D:\Students\cs_work\Practice\obj\Debug\net8.0-windows\Practice.Search.resources

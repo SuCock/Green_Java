@@ -1,6 +1,6 @@
 ﻿namespace Practice
 {
-    partial class Form1
+    partial class Request
     {
         /// <summary>
         ///  Required designer variable.

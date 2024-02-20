@@ -67,10 +67,54 @@ namespace Practice.Database
             conn.Close();
         }
 
-        public void insert()
+        public void insert(Label label9, Label label10, ComboBox comboBox1, ComboBox comboBox2,TextBox textBox1)
         {
             // 관리자한테 수정이나 삭제 요청하기
             // 요청코드, 아이디, 단어코드, 처리구분, 요청구분, 요청내용, 편입요청일(sysdate)
+            // 아이디 - label9, 단어코드 - label10, 처리구분 - comboBox1
+            // , 요청구분 - comboBox2, 요청내용 - textBox1
+            string combo1 = "";
+            string combo2 = "";
+
+            if (comboBox1.Text.Equals("삭제")){
+                combo1 = "DELETE";
+            }
+            else
+            {
+                combo1 = "UPDATE";
+
+            }
+            if (comboBox2.Text.Equals("용어"))
+            {
+                combo2 = "RC1";
+            }
+            else
+            {
+                combo2 = "RC2";
+            }
+
+            OracleConnection conn = new OracleConnection(strConnection);
+            conn.Open();
+            OracleCommand cmd = new OracleCommand("INSERT INTO request (REQUEST_NO, PROCESS_DIVISION, REQUEST_DIVISION, REQUEST_CONTENT, REQUEST_DATE, REQUEST_RYN, ID, WORD_NO) " +
+                                       "VALUES('RE' || RE.NEXTVAL, :processDivision, :requestDivision, :requestContent, SYSDATE, 'r', :id, :wordNo)", conn);
+
+            cmd.Parameters.Add(":processDivision", OracleDbType.Varchar2).Value = combo1;
+            cmd.Parameters.Add(":requestDivision", OracleDbType.Varchar2).Value = combo2;
+            cmd.Parameters.Add(":requestContent", OracleDbType.Varchar2).Value = textBox1.Text;
+            cmd.Parameters.Add(":id", OracleDbType.Varchar2).Value = label9.Text;
+            cmd.Parameters.Add(":wordNo", OracleDbType.Varchar2).Value = label10.Text;
+
+            int rowId = cmd.ExecuteNonQuery();
+            if (rowId != 0)
+            {
+                Console.WriteLine($"{rowId}행을 삽입했습니다");
+                MessageBox.Show("요청을 성공했습니다.");
+            }
+            else
+            {
+                MessageBox.Show("요청을 실패했습니다.");
+            }
+            conn.Close();
 
         }
     }
