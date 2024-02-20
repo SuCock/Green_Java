@@ -1,0 +1,17 @@
+D:\Students\cs_work\WinFormsAppClass\bin\Debug\net8.0-windows\WinFormsAppClass.exe
+D:\Students\cs_work\WinFormsAppClass\bin\Debug\net8.0-windows\WinFormsAppClass.deps.json
+D:\Students\cs_work\WinFormsAppClass\bin\Debug\net8.0-windows\WinFormsAppClass.runtimeconfig.json
+D:\Students\cs_work\WinFormsAppClass\bin\Debug\net8.0-windows\WinFormsAppClass.dll
+D:\Students\cs_work\WinFormsAppClass\bin\Debug\net8.0-windows\WinFormsAppClass.pdb
+D:\Students\cs_work\WinFormsAppClass\obj\Debug\net8.0-windows\WinFormsAppClass.Form1.resources
+D:\Students\cs_work\WinFormsAppClass\obj\Debug\net8.0-windows\WinFormsAppClass.csproj.GenerateResource.cache
+D:\Students\cs_work\WinFormsAppClass\obj\Debug\net8.0-windows\WinFormsAppClass.GeneratedMSBuildEditorConfig.editorconfig
+D:\Students\cs_work\WinFormsAppClass\obj\Debug\net8.0-windows\WinFormsAppClass.AssemblyInfoInputs.cache
+D:\Students\cs_work\WinFormsAppClass\obj\Debug\net8.0-windows\WinFormsAppClass.AssemblyInfo.cs
+D:\Students\cs_work\WinFormsAppClass\obj\Debug\net8.0-windows\WinFormsAppClass.csproj.CoreCompileInputs.cache
+D:\Students\cs_work\WinFormsAppClass\obj\Debug\net8.0-windows\WinFormsAppClass.sourcelink.json
+D:\Students\cs_work\WinFormsAppClass\obj\Debug\net8.0-windows\WinFormsAppClass.dll
+D:\Students\cs_work\WinFormsAppClass\obj\Debug\net8.0-windows\refint\WinFormsAppClass.dll
+D:\Students\cs_work\WinFormsAppClass\obj\Debug\net8.0-windows\WinFormsAppClass.pdb
+D:\Students\cs_work\WinFormsAppClass\obj\Debug\net8.0-windows\WinFormsAppClass.genruntimeconfig.cache
+D:\Students\cs_work\WinFormsAppClass\obj\Debug\net8.0-windows\ref\WinFormsAppClass.dll

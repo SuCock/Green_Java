@@ -1,0 +1,17 @@
+D:\Students\cs_work\ex240219\bin\Debug\net8.0-windows\ex240219.exe
+D:\Students\cs_work\ex240219\bin\Debug\net8.0-windows\ex240219.deps.json
+D:\Students\cs_work\ex240219\bin\Debug\net8.0-windows\ex240219.runtimeconfig.json
+D:\Students\cs_work\ex240219\bin\Debug\net8.0-windows\ex240219.dll
+D:\Students\cs_work\ex240219\bin\Debug\net8.0-windows\ex240219.pdb
+D:\Students\cs_work\ex240219\obj\Debug\net8.0-windows\ex240219.Form1.resources
+D:\Students\cs_work\ex240219\obj\Debug\net8.0-windows\ex240219.csproj.GenerateResource.cache
+D:\Students\cs_work\ex240219\obj\Debug\net8.0-windows\ex240219.GeneratedMSBuildEditorConfig.editorconfig
+D:\Students\cs_work\ex240219\obj\Debug\net8.0-windows\ex240219.AssemblyInfoInputs.cache
+D:\Students\cs_work\ex240219\obj\Debug\net8.0-windows\ex240219.AssemblyInfo.cs
+D:\Students\cs_work\ex240219\obj\Debug\net8.0-windows\ex240219.csproj.CoreCompileInputs.cache
+D:\Students\cs_work\ex240219\obj\Debug\net8.0-windows\ex240219.sourcelink.json
+D:\Students\cs_work\ex240219\obj\Debug\net8.0-windows\ex240219.dll
+D:\Students\cs_work\ex240219\obj\Debug\net8.0-windows\refint\ex240219.dll
+D:\Students\cs_work\ex240219\obj\Debug\net8.0-windows\ex240219.pdb
+D:\Students\cs_work\ex240219\obj\Debug\net8.0-windows\ex240219.genruntimeconfig.cache
+D:\Students\cs_work\ex240219\obj\Debug\net8.0-windows\ref\ex240219.dll
