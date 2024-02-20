@@ -69,6 +69,8 @@ namespace Practice.Database
 
         public void insert()
         {
+            // 관리자한테 수정이나 삭제 요청하기
+            // 요청코드, 아이디, 단어코드, 처리구분, 요청구분, 요청내용, 편입요청일(sysdate)
 
         }
     }
