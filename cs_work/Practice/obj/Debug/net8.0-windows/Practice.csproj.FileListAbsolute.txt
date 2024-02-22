@@ -23,3 +23,5 @@ D:\Students\cs_work\Practice\bin\Debug\net8.0-windows\runtimes\osx\lib\net6.0\Sy
 D:\Students\cs_work\Practice\bin\Debug\net8.0-windows\runtimes\win\lib\net6.0\System.DirectoryServices.Protocols.dll
 D:\Students\cs_work\Practice\obj\Debug\net8.0-windows\Practice.Request.resources
 D:\Students\cs_work\Practice\obj\Debug\net8.0-windows\Practice.Search.resources
+D:\Students\cs_work\Practice\obj\Debug\net8.0-windows\Practice.SearchWord.resources
+D:\Students\cs_work\Practice\obj\Debug\net8.0-windows\Practice.SearchWordMean.resources

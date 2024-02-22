@@ -1,4 +1,5 @@
-﻿using Practice.SRDatabase;
+﻿
+using Practice.SRDatabase;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,8 @@ namespace Practice
     public partial class Search : Form
     {
         DBManager db = new DBManager();
+        
+        
         public Search()
         {
             InitializeComponent();
@@ -31,12 +34,46 @@ namespace Practice
 
         private void Search_Load(object sender, EventArgs e)
         {
-            db.select(comboBox1);
+            db.selectComoBox(comboBox1);
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.Text.Equals("용어"))
+            {
+                if(db.selectWord(textBox1) != null){
+                    Dictionary<string, string> dictWordMean = db.selectWord(textBox1) as Dictionary<string, string>;
+                    SearchWord sw = new SearchWord(dictWordMean);
+                    sw.Show();
+                };
+
+            }
+            else if (comboBox1.Text.Equals("정의"))
+            {
+                
+                if (db.selectWordMean(textBox1) != null)
+                {
+                    // null이 들어올 수 있으니깐 null인지 아닌지 정확하게 형변환
+                    Dictionary<string, string> dictWord =  db.selectWordMean(textBox1) as Dictionary<string,string>;
+
+                    SearchWordMean swm = new SearchWordMean(dictWord);
+                    swm.Show();
+                };
+            }
+            else
+            {
+                MessageBox.Show("카테고리를 선택해주세요");
+            }
         }
     }
 }

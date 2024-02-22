@@ -54,6 +54,7 @@ namespace Practice.Database
             {
                 comboBox1.Items.Add(reader.GetString(0));
             }
+            comboBox1.SelectedIndex = 0;
 
             // 요청구분 콤보박스 조회 RC
             cmd = new OracleCommand($"SELECT group_detail_name FROM group_detail WHERE GROUP_NO = 'RC'", conn);
@@ -62,7 +63,7 @@ namespace Practice.Database
             {
                 comboBox2.Items.Add(reader.GetString(0));
             }
-
+            comboBox2.SelectedIndex = 0;
             reader.Close();
             conn.Close();
         }

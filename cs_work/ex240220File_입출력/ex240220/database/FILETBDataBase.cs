@@ -51,7 +51,7 @@ namespace ex240220.database
                 OracleDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    list.Add(reader.GetString(0));
+                    list.Add(reader["str"].ToString());
                 }
               
             }
@@ -59,6 +59,19 @@ namespace ex240220.database
             con.Close();
 
             return list;
+        }
+
+        public void update(string org, string dst)
+        {
+            string constr = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=xe)));User Id=hr;Password=1234;";
+
+            OracleConnection con = new OracleConnection(constr);
+
+            con.Open();
+            OracleCommand oracleCommand = new OracleCommand($"UPDATE filetb SET str = '{dst}' WHERE str = '{org}'", con);
+            oracleCommand.ExecuteNonQuery();// 실행
+            con.Close();
+
         }
     }
 }
