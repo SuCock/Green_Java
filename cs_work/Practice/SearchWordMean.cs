@@ -12,18 +12,15 @@ namespace Practice
 {
     public partial class SearchWordMean : Form
     {
+        string word;
         public SearchWordMean(Dictionary<string, string> selectWordMean)
         {
             InitializeComponent();
-            Console.WriteLine(selectWordMean);
 
             foreach (var kvp in selectWordMean)
             {
                 Console.WriteLine($"Key: {kvp.Key}, Value: {kvp.Value}");
-                label2.Text = kvp.Key;
-                textBox1.Text = kvp.Value;
-
-
+                word = kvp.Key;
             }
         }
 
@@ -40,6 +37,12 @@ namespace Practice
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Request rq = new Request(word);
+            rq.Show();
         }
     }
 }

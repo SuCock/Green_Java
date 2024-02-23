@@ -38,19 +38,19 @@ namespace Practice.SRDatabase
             }
             OracleConnection conn = new OracleConnection(strConnection);
             conn.Open();
-            OracleCommand cmd = new OracleCommand($"SELECT * FROM word WHERE word LIKE '%{word}%'", conn);
+            OracleCommand cmd = new OracleCommand($"SELECT * FROM word WHERE word LIKE '%{word}%' AND delete_yn = 'n'", conn);
             OracleDataReader reader = cmd.ExecuteReader();
             int cnt = 0;
+            Dictionary<string, string> dWord = new Dictionary<string, string>();
             while (reader.Read())
             {
                 cnt++;
                 //Console.WriteLine(reader["WORD"].ToString());
                 //Console.WriteLine(reader["WORD_MEAN"].ToString());
-                Dictionary<string, string> dWord = new Dictionary<string, string>
-                {
-                    { reader["WORD"].ToString(), reader["WORD_MEAN"].ToString() }
-                };
-                return dWord;
+                
+                dWord.Add( reader["WORD"].ToString(), reader["WORD_MEAN"].ToString() );
+                
+                
             }
             if (cnt == 0)
             {
@@ -59,7 +59,7 @@ namespace Practice.SRDatabase
             }
             reader.Close();
             conn.Close();
-            return null;
+            return dWord; // return을 반복문 안에 넣어서 한번밖에 못돈다
         }
         public Dictionary<string, string> selectWordMean(TextBox text)
         {   
@@ -71,19 +71,20 @@ namespace Practice.SRDatabase
             }
             OracleConnection conn = new OracleConnection(strConnection);
             conn.Open();
-            OracleCommand cmd = new OracleCommand($"SELECT * FROM word WHERE word_mean LIKE '%{wordMean}%'", conn);
+            OracleCommand cmd = new OracleCommand($"SELECT * FROM word WHERE word_mean LIKE '%{wordMean}%' AND delete_yn = 'n'", conn);
             OracleDataReader reader = cmd.ExecuteReader();
             int cnt = 0;
+            Dictionary<string, string> dWordMean = new Dictionary<string, string>();
             while (reader.Read())
             {
                 cnt++;
                 //Console.WriteLine(reader["WORD"].ToString());
                 //Console.WriteLine(reader["WORD_MEAN"].ToString());
-                Dictionary<string, string> dWordMean = new Dictionary<string, string>
-                {
-                    { reader["WORD"].ToString(), reader["WORD_MEAN"].ToString() }
-                };
-                return dWordMean;
+
+
+                dWordMean.Add(reader["WORD"].ToString(), reader["WORD_MEAN"].ToString()); 
+                
+                
             }
             if (cnt == 0)
             {
@@ -92,9 +93,10 @@ namespace Practice.SRDatabase
             }
             reader.Close();
             conn.Close();
-            return null;
+            return dWordMean;
+
         }
-        
+
         public void requestBtn()
         {
 

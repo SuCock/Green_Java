@@ -63,7 +63,6 @@
             label2.Size = new Size(43, 15);
             label2.TabIndex = 1;
             label2.Text = "아이디";
-            label2.Click += label2_Click;
             // 
             // label3
             // 
@@ -127,7 +126,6 @@
             label9.Size = new Size(29, 15);
             label9.TabIndex = 8;
             label9.Text = "user";
-            label9.Click += label9_Click;
             // 
             // label10
             // 
@@ -137,7 +135,6 @@
             label10.Size = new Size(52, 15);
             label10.TabIndex = 9;
             label10.Text = "ef55182";
-            label10.Click += label10_Click;
             // 
             // label11
             // 
@@ -147,7 +144,6 @@
             label11.Size = new Size(55, 15);
             label11.TabIndex = 10;
             label11.Text = "트렌잭션";
-            label11.Click += label11_Click;
             // 
             // label12
             // 
@@ -157,7 +153,6 @@
             label12.Size = new Size(73, 15);
             label12.TabIndex = 11;
             label12.Text = "2024-02-16";
-            label12.Click += label12_Click;
             // 
             // comboBox1
             // 
@@ -167,7 +162,6 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(121, 23);
             comboBox1.TabIndex = 12;
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // comboBox2
             // 
@@ -177,7 +171,6 @@
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(121, 23);
             comboBox2.TabIndex = 13;
-            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
             // textBox1
             // 
@@ -185,7 +178,6 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(100, 23);
             textBox1.TabIndex = 14;
-            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // button1
             // 

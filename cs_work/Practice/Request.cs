@@ -8,20 +8,9 @@ namespace Practice
     {
         DBManager db = new DBManager();
 
-        public Request()
+        public Request(String word)
         {
             InitializeComponent();
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-            // user 자동입력
 
         }
 
@@ -32,36 +21,6 @@ namespace Practice
             db.select(label9, label10, label11, label12, comboBox1, comboBox2);
         }
 
-        private void label10_Click(object sender, EventArgs e)
-        {
-            // 단어코드 자동입력
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-            // 단어명 자동입력
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-            // 요청일 자동입력
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // 처리구분 셀렉트박스
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // 요청구분 셀렉트박스
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            // 요청내용
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {

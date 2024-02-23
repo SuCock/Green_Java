@@ -12,23 +12,27 @@ namespace Practice
 {
     public partial class SearchWord : Form
     {
+        string word;
         public SearchWord(Dictionary<string, string> selectWord)
         {
             InitializeComponent();
-            Console.WriteLine(selectWord);
 
             foreach (var kvp in selectWord)
             {
                 Console.WriteLine($"Key: {kvp.Key}, Value: {kvp.Value}");
-                label2.Text = kvp.Key;
-                textBox1.Text = kvp.Value;
-
+                word = kvp.Key;
             }
         }
 
         private void SearchWord_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Request rq = new Request(word);
+            rq.Show();
         }
     }
 }
