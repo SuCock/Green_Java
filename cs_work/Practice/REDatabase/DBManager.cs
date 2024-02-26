@@ -11,11 +11,11 @@ namespace Practice.Database
     {
         string strConnection = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=xe)));User Id=bono;Password=bono;";
 
-        public void select(Label label9, Label label10, Label label11, Label label12, ComboBox comboBox1, ComboBox comboBox2)
+        public void select(Label label9, Label label10, Label label11, Label label12, ComboBox comboBox1, ComboBox comboBox2, String word)
         {
             OracleConnection conn = new OracleConnection(strConnection);
             conn.Open();
-
+            Console.WriteLine(word);
             // 아이디 자동조회
             OracleCommand cmd = new OracleCommand($"SELECT ID FROM member WHERE ID = 'test'", conn);
             OracleDataReader reader = cmd.ExecuteReader();
@@ -25,7 +25,8 @@ namespace Practice.Database
             }
 
             // 단어코드 자동조회
-            cmd = new OracleCommand($"SELECT word_no FROM word WHERE word_no = 'ELF014'", conn);
+            cmd = new OracleCommand($"SELECT word_no FROM word WHERE word = :word", conn);
+            cmd.Parameters.Add(":word", OracleDbType.Varchar2).Value = word;
             reader = cmd.ExecuteReader();
             while (reader.Read())
             {
@@ -34,7 +35,8 @@ namespace Practice.Database
 
 
             // 단어명 자동조회
-            cmd = new OracleCommand($"SELECT word FROM word WHERE word_no = 'ELF014'", conn);
+            cmd = new OracleCommand($"SELECT word FROM word WHERE word = :word", conn);
+            cmd.Parameters.Add(":word", OracleDbType.Varchar2).Value = word;
             reader = cmd.ExecuteReader();
             while (reader.Read())
             {

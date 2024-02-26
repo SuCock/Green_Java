@@ -28,74 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
-            button1 = new Button();
-            label4 = new Label();
-            label3 = new Label();
-            textBox1 = new TextBox();
-            label2 = new Label();
             label1 = new Label();
-            panel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(button1);
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(label2);
-            panel1.Location = new Point(45, 77);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(710, 126);
-            panel1.TabIndex = 4;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(618, 84);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 4;
-            button1.Text = "편집요청";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(648, 14);
-            label4.Name = "label4";
-            label4.Size = new Size(43, 15);
-            label4.TabIndex = 3;
-            label4.Text = "중분류";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(584, 14);
-            label3.Name = "label3";
-            label3.Size = new Size(43, 15);
-            label3.TabIndex = 2;
-            label3.Text = "대분류";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(13, 50);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(599, 57);
-            textBox1.TabIndex = 1;
-            textBox1.Text = "정의";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Candara", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(28, 14);
-            label2.Name = "label2";
-            label2.Size = new Size(61, 33);
-            label2.TabIndex = 0;
-            label2.Text = "단어";
             // 
             // label1
             // 
@@ -112,25 +46,14 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(panel1);
             Controls.Add(label1);
             Name = "SearchWord";
             Text = "SearchWord";
-            Load += SearchWord_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Panel panel1;
-        private Button button1;
-        private Label label4;
-        private Label label3;
-        private TextBox textBox1;
-        private Label label2;
         private Label label1;
     }
 }

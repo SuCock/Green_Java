@@ -12,15 +12,12 @@ namespace Practice
         {
             InitializeComponent();
 
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
             // 아이디랑 단어코드 가져와야한다
             // 여기서 다 조회한다.
-            db.select(label9, label10, label11, label12, comboBox1, comboBox2);
-        }
+            Console.WriteLine(word);
+            db.select(label9, label10, label11, label12, comboBox1, comboBox2, word);
 
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
