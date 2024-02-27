@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Practice;
+using System.Collections;
 
 namespace Practice.SRDatabase
 {
@@ -12,6 +13,7 @@ namespace Practice.SRDatabase
     {
         string strConnection = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=xe)));User Id=bono;Password=bono;";
         private Dictionary<string, string> myDictionary = new Dictionary<string, string>();
+        List<string> list = new List<string>();
 
         public void selectComoBox(ComboBox comboBox)
         {
@@ -28,7 +30,8 @@ namespace Practice.SRDatabase
             conn.Close();
         }
 
-        public Dictionary<string, string> selectWord(TextBox text, ComboBox combox)
+        //public Dictionary<string, string> selectWord(TextBox text, ComboBox combox) // key, value
+        public List<string> selectWord(TextBox text, ComboBox combox) // list
         {
             if (combox.Text.Equals("용어"))
             {
@@ -50,7 +53,12 @@ namespace Practice.SRDatabase
                     //Console.WriteLine(reader["WORD"].ToString());
                     //Console.WriteLine(reader["WORD_MEAN"].ToString());
 
-                    dWord.Add(reader["WORD"].ToString(), reader["WORD_MEAN"].ToString());
+                    Console.WriteLine("디비 용어 = " + reader["WORD"].ToString());
+                    Console.WriteLine("디비 정의 = " + reader["WORD_MEAN"].ToString());
+                    list.Add(reader["WORD"].ToString());
+                    list.Add(reader["WORD_MEAN"].ToString());
+
+                    //dWord.Add(reader["WORD"].ToString(), reader["WORD_MEAN"].ToString());
 
 
                 }
@@ -61,7 +69,8 @@ namespace Practice.SRDatabase
                 }
                 reader.Close();
                 conn.Close();
-                return dWord; // return을 반복문 안에 넣어서 한번밖에 못돈다
+                //return dWord; // return을 반복문 안에 넣어서 한번밖에 못돈다
+                return list;
 
             }
             else if (combox.Text.Equals("정의"))
@@ -83,9 +92,10 @@ namespace Practice.SRDatabase
                     cnt++;
                     //Console.WriteLine(reader["WORD"].ToString());
                     //Console.WriteLine(reader["WORD_MEAN"].ToString());
+                    list.Add(reader["WORD"].ToString());
+                    list.Add(reader["WORD_MEAN"].ToString());
 
-
-                    dWordMean.Add(reader["WORD"].ToString(), reader["WORD_MEAN"].ToString());
+                    //dWordMean.Add(reader["WORD"].ToString(), reader["WORD_MEAN"].ToString());
 
 
                 }
@@ -96,7 +106,7 @@ namespace Practice.SRDatabase
                 }
                 reader.Close();
                 conn.Close();
-                return dWordMean;
+                return list;
 
             }
 

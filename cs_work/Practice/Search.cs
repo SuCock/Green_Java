@@ -55,9 +55,11 @@ namespace Practice
             // null이 들어올 수 있으니깐 null인지 아닌지 정확하게 형변환
             if (db.selectWord(textBox1, comboBox1) != null)
             {
-                Dictionary<string, string> dictWord = db.selectWord(textBox1, comboBox1) as Dictionary<string, string>;
+                //Dictionary<string, string> dictWord = db.selectWord(textBox1, comboBox1) as Dictionary<string, string>;
+                List<string> dictWord = db.selectWord(textBox1, comboBox1);
                 SearchWord sw = new SearchWord(dictWord);
                 sw.Show();
+
             };
 
         }

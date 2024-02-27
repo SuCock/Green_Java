@@ -15,17 +15,18 @@ namespace Practice
         string word;
         string wordMean;
         int panelY = 100; // 초기 Y 위치
-        public SearchWord(Dictionary<string, string> selectWord)
+        //public SearchWord(Dictionary<string, string> selectWord)
+          public SearchWord(List<string> selectWord)
         {
             InitializeComponent();
 
             foreach (var kvp in selectWord)
             {
-                word = kvp.Key;
-                wordMean = kvp.Value;
+                //word = kvp.Key;
+                //wordMean = kvp.Value;
 
-                Console.WriteLine("for문 단어 = " + word);
-                Console.WriteLine("for문 의미 = " + wordMean);
+                Console.WriteLine(kvp);
+
 
                 Panel panel = new Panel();
                 panel.Location = new Point(60, panelY);

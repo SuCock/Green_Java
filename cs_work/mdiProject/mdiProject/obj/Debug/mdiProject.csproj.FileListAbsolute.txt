@@ -1,0 +1,11 @@
+D:\students\cs_work\mdiProject\mdiProject\obj\Debug\mdiProject.csproj.AssemblyReference.cache
+D:\students\cs_work\mdiProject\mdiProject\obj\Debug\mdiProject.MainForm.resources
+D:\students\cs_work\mdiProject\mdiProject\obj\Debug\mdiProject.Properties.Resources.resources
+D:\students\cs_work\mdiProject\mdiProject\obj\Debug\mdiProject.csproj.GenerateResource.cache
+D:\students\cs_work\mdiProject\mdiProject\obj\Debug\mdiProject.csproj.CoreCompileInputs.cache
+D:\students\cs_work\mdiProject\mdiProject\bin\Debug\mdiProject.exe.config
+D:\students\cs_work\mdiProject\mdiProject\bin\Debug\mdiProject.exe
+D:\students\cs_work\mdiProject\mdiProject\bin\Debug\mdiProject.pdb
+D:\students\cs_work\mdiProject\mdiProject\obj\Debug\mdiProject.exe
+D:\students\cs_work\mdiProject\mdiProject\obj\Debug\mdiProject.pdb
+D:\students\cs_work\mdiProject\mdiProject\obj\Debug\mdiProject.user.UserForm.resources
