@@ -56,7 +56,7 @@ namespace Practice
             if (db.selectWord(textBox1, comboBox1) != null)
             {
                 //Dictionary<string, string> dictWord = db.selectWord(textBox1, comboBox1) as Dictionary<string, string>;
-                List<string> dictWord = db.selectWord(textBox1, comboBox1);
+                List<Dictionary<string, string>> dictWord = db.selectWord(textBox1, comboBox1);
                 SearchWord sw = new SearchWord(dictWord);
                 sw.Show();
 

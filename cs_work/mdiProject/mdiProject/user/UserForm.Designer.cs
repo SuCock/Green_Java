@@ -30,17 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.EMAIL = new System.Windows.Forms.Label();
-            this.TB_EM = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.TB_NM = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.TB_PW = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.TB_AD = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.TB_SR = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,11 +37,22 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.TB_AD = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TB_PW = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.TB_NM = new System.Windows.Forms.TextBox();
+            this.EMAIL = new System.Windows.Forms.Label();
+            this.TB_EM = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -76,113 +76,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "사용자관리";
             // 
-            // EMAIL
-            // 
-            this.EMAIL.AutoSize = true;
-            this.EMAIL.BackColor = System.Drawing.Color.Transparent;
-            this.EMAIL.ForeColor = System.Drawing.Color.Snow;
-            this.EMAIL.Location = new System.Drawing.Point(74, 39);
-            this.EMAIL.Name = "EMAIL";
-            this.EMAIL.Size = new System.Drawing.Size(90, 33);
-            this.EMAIL.TabIndex = 1;
-            this.EMAIL.Text = "EMAIL";
-            // 
-            // TB_EM
-            // 
-            this.TB_EM.Location = new System.Drawing.Point(191, 51);
-            this.TB_EM.Multiline = true;
-            this.TB_EM.Name = "TB_EM";
-            this.TB_EM.Size = new System.Drawing.Size(155, 21);
-            this.TB_EM.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 236);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 214);
-            this.panel1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.ForeColor = System.Drawing.Color.Snow;
-            this.label1.Location = new System.Drawing.Point(77, 84);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 33);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "NAME";
-            // 
-            // TB_NM
-            // 
-            this.TB_NM.Location = new System.Drawing.Point(191, 96);
-            this.TB_NM.Multiline = true;
-            this.TB_NM.Name = "TB_NM";
-            this.TB_NM.Size = new System.Drawing.Size(155, 21);
-            this.TB_NM.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.ForeColor = System.Drawing.Color.Snow;
-            this.label2.Location = new System.Drawing.Point(13, 127);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(151, 33);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "PASSWORD";
-            // 
-            // TB_PW
-            // 
-            this.TB_PW.Location = new System.Drawing.Point(191, 139);
-            this.TB_PW.Multiline = true;
-            this.TB_PW.Name = "TB_PW";
-            this.TB_PW.Size = new System.Drawing.Size(155, 21);
-            this.TB_PW.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.ForeColor = System.Drawing.Color.Snow;
-            this.label3.Location = new System.Drawing.Point(82, 171);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 33);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "ADDR";
-            // 
-            // TB_AD
-            // 
-            this.TB_AD.Location = new System.Drawing.Point(191, 183);
-            this.TB_AD.Multiline = true;
-            this.TB_AD.Name = "TB_AD";
-            this.TB_AD.Size = new System.Drawing.Size(155, 21);
-            this.TB_AD.TabIndex = 6;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox2.Font = new System.Drawing.Font("Candara", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(800, 214);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "사용자";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 36);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(794, 175);
-            this.dataGridView1.TabIndex = 0;
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
@@ -200,6 +93,7 @@
             // 
             // TB_SR
             // 
+            this.TB_SR.Font = new System.Drawing.Font("Candara Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TB_SR.Location = new System.Drawing.Point(128, 65);
             this.TB_SR.Multiline = true;
             this.TB_SR.Name = "TB_SR";
@@ -225,6 +119,7 @@
             this.button4.TabIndex = 17;
             this.button4.Text = "INSERT";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -235,6 +130,7 @@
             this.button3.TabIndex = 16;
             this.button3.Text = "UPDATE";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -245,6 +141,7 @@
             this.button2.TabIndex = 15;
             this.button2.Text = "DELETE";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -255,6 +152,120 @@
             this.button1.TabIndex = 14;
             this.button1.Text = "SEARCH";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.ForeColor = System.Drawing.Color.Snow;
+            this.label3.Location = new System.Drawing.Point(82, 171);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 33);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "ADDR";
+            // 
+            // TB_AD
+            // 
+            this.TB_AD.Font = new System.Drawing.Font("Candara Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_AD.Location = new System.Drawing.Point(191, 183);
+            this.TB_AD.Multiline = true;
+            this.TB_AD.Name = "TB_AD";
+            this.TB_AD.Size = new System.Drawing.Size(155, 21);
+            this.TB_AD.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.ForeColor = System.Drawing.Color.Snow;
+            this.label2.Location = new System.Drawing.Point(13, 127);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(151, 33);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "PASSWORD";
+            // 
+            // TB_PW
+            // 
+            this.TB_PW.Font = new System.Drawing.Font("Candara Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_PW.Location = new System.Drawing.Point(191, 139);
+            this.TB_PW.Multiline = true;
+            this.TB_PW.Name = "TB_PW";
+            this.TB_PW.Size = new System.Drawing.Size(155, 21);
+            this.TB_PW.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.ForeColor = System.Drawing.Color.Snow;
+            this.label1.Location = new System.Drawing.Point(77, 84);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 33);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "NAME";
+            // 
+            // TB_NM
+            // 
+            this.TB_NM.Font = new System.Drawing.Font("Candara Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_NM.Location = new System.Drawing.Point(191, 96);
+            this.TB_NM.Multiline = true;
+            this.TB_NM.Name = "TB_NM";
+            this.TB_NM.Size = new System.Drawing.Size(155, 21);
+            this.TB_NM.TabIndex = 2;
+            // 
+            // EMAIL
+            // 
+            this.EMAIL.AutoSize = true;
+            this.EMAIL.BackColor = System.Drawing.Color.Transparent;
+            this.EMAIL.ForeColor = System.Drawing.Color.Snow;
+            this.EMAIL.Location = new System.Drawing.Point(74, 39);
+            this.EMAIL.Name = "EMAIL";
+            this.EMAIL.Size = new System.Drawing.Size(90, 33);
+            this.EMAIL.TabIndex = 1;
+            this.EMAIL.Text = "EMAIL";
+            // 
+            // TB_EM
+            // 
+            this.TB_EM.Font = new System.Drawing.Font("Candara Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_EM.Location = new System.Drawing.Point(191, 51);
+            this.TB_EM.Multiline = true;
+            this.TB_EM.Name = "TB_EM";
+            this.TB_EM.Size = new System.Drawing.Size(155, 21);
+            this.TB_EM.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.groupBox2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 236);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 214);
+            this.panel1.TabIndex = 1;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox2.Font = new System.Drawing.Font("Candara", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(800, 214);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "사용자";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 36);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.Size = new System.Drawing.Size(794, 175);
+            this.dataGridView1.TabIndex = 0;
             // 
             // UserForm
             // 
@@ -267,11 +278,11 @@
             this.Text = "UserForm";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
