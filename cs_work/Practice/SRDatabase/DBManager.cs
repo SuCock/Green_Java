@@ -13,7 +13,7 @@ namespace Practice.SRDatabase
     {
         string strConnection = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=xe)));User Id=bono;Password=bono;";
         private Dictionary<string, string> myDictionary = new Dictionary<string, string>();
-        List<string> list = new List<string>();
+        //List<string> list = new List<string>();
 
         public void selectComoBox(ComboBox comboBox)
         {
@@ -30,8 +30,8 @@ namespace Practice.SRDatabase
             conn.Close();
         }
 
-        //public Dictionary<string, string> selectWord(TextBox text, ComboBox combox) // key, value
-        public List<Dictionary<string, string>> selectWord(TextBox text, ComboBox combox) // list
+        public Dictionary<string, string> selectWord(TextBox text, ComboBox combox) // key, value
+        //public List<Dictionary<string, string>> selectWord(TextBox text, ComboBox combox) // list
         {
             Dictionary<string, string> dWord = new Dictionary<string, string>();
             List< Dictionary<string, string>> list = new List<Dictionary<string, string>>();
@@ -56,7 +56,7 @@ namespace Practice.SRDatabase
                     //Console.WriteLine(reader["WORD_MEAN"].ToString());
 
                     dWord.Add(reader["WORD"].ToString(), reader["WORD_MEAN"].ToString());
-                    list.Add(dWord);
+                    //list.Add(dWord);
 
 
                 }
@@ -69,7 +69,7 @@ namespace Practice.SRDatabase
                 conn.Close();
                 //return dWord; // return을 반복문 안에 넣어서 한번밖에 못돈다
                 
-                return list;
+                return dWord;
 
             }
             else if (combox.Text.Equals("정의"))
@@ -106,7 +106,7 @@ namespace Practice.SRDatabase
                 }
                 reader.Close();
                 conn.Close();
-                return list;
+                return dWord;
 
             }
 

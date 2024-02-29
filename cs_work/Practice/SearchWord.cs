@@ -17,15 +17,16 @@ namespace Practice
         string word;
         string wordMean;
         int panelY = 100; // 초기 Y 위치
-        //public SearchWord(Dictionary<string, string> selectWord)
-          public SearchWord(List<Dictionary<string, string>> list)
+        public SearchWord(Dictionary<string, string> selectWord)
+          //public SearchWord(List<Dictionary<string, string>> list)
         {
             InitializeComponent();
-            for (int i = 0; i < list.Count; i++)
-            {
-                var dictionary = list[i];
+            //for (int i = 0; i < list.Count; i++)
+            //{
+            //    var dictionary = list[i];
 
-                foreach (var kvp in dictionary)
+                //foreach (var kvp in dictionary)
+                foreach (var kvp in selectWord)
                 {
                     word = kvp.Key;
                     wordMean = kvp.Value;
@@ -78,7 +79,7 @@ namespace Practice
             }
 
            
-        }
+        //}
         private void Button_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
