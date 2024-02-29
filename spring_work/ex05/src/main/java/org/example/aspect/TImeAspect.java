@@ -10,7 +10,7 @@ import java.time.LocalTime;
 @Aspect
 public class TImeAspect {
 
-    @Pointcut("execution( public * org..*(..))") // 어디에 걸꺼냐
+    @Pointcut("execution( public * org.components..*(..))") // 어디에 걸꺼냐
     public void publicTarget() {
     }
 
