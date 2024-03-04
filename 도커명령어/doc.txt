@@ -1,0 +1,41 @@
+-d 백그라운드 실행해라
+--name 컨테인명 지정
+
+mysql
+oralce
+
+jenkins -> docker
+jenkins : github 소스업로드 -> jar war 자동으로 생성 -> tomcat 실행
+
+# 이미지 mysql oralce
+docker run -d -e MYSQL_ROOT_PASSWORD=1234 --name mysqlcontainer -p 3306:3306 mysql
+
+-> 위에 명령어를 나눈다면...
+docker pull mysql
+docker create --name mysqlcontainer -e MYSQL_ROOT_PASSWORD=1234 -p 3306:3306 mysql
+docker start -d mysqlcontainer
+
+# 이미지 다운로드
+docker pull -docker
+
+# 컨테이너 생성, 연결할 포트, 이미지파일 이름
+docker create -p 3306:3306 IMAGE
+
+# 컨테이너
+docker start
+
+# 도커 모든 이미지 보기
+docker images
+
+# 도커 컨테이너 보기
+docker ps
+
+# 정지된 도커컨테이너 함께 보기
+docker ps -a
+
+# 도커 이미지 삭제 명령어
+docker rmi maysql
+
+# 도커 컨테이너 삭제 명령어(아이디나 이름)
+docker rm mysqlcontainer
+docker rm 585b3e711b6f
