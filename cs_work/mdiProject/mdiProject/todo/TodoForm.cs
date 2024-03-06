@@ -1,4 +1,5 @@
 ﻿using mdiProject.todo;
+using mdiProject.user;
 using OracleInternal.SqlAndPlsqlParser.RuleProcessors;
 using System;
 using System.Collections.Generic;
@@ -12,8 +13,8 @@ namespace mdiProject.todo
     public partial class TodoForm : Form
     {
         private static TodoForm instance;
-        private TodoDBManager dbManager = new TodoDBManager();
-        
+        private TodoDBManager todoDBManager = new TodoDBManager();
+        private UserDBManager userDBManager = new UserDBManager();
         
         
         public static TodoForm getInstance()
@@ -31,15 +32,22 @@ namespace mdiProject.todo
         public TodoForm()
         {
             InitializeComponent();
-            comboBox1.DataSource = new List<string>()
-            {
-                "1", "2", "3", "4", "5"
-            };
+            // 사용자의 idx불러와야함
+            List<string> list = userDBManager.selectUserId();
+            // 사용자 데이터 불러와야...
+            comboBox1.DataSource = list;
+
             comboBox1.SelectedText = "1";
 
-            //this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            panel1.Controls.Clear();
+            // 할일관리
+            todoSelect();
 
-            DataTable dataTable = dbManager.select();
+        }
+
+        public void todoSelect()
+        {
+            DataTable dataTable = todoDBManager.select();
 
             int y = 90;
             int evenOdd = 1;
@@ -80,7 +88,7 @@ namespace mdiProject.todo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            bool result = dbManager.insert(new Todo()
+            bool result = todoDBManager.insert(new Todo()
             {
                 user_idx = int.Parse(comboBox1.Text),
                 title = textBox1.Text,
@@ -93,6 +101,9 @@ namespace mdiProject.todo
                 MessageBox.Show("입력 성공했습니다");
                 textBox1.Clear();
                 textBox2.Clear();
+                todoSelect();
+
+
             }
         }
         private void makeTodoPanel(int panelX, int panelY, Todo todo, int evenOdd)
@@ -208,6 +219,19 @@ namespace mdiProject.todo
             panel4.TabIndex = 1;
 
             this.panel1.Controls.Add(panel4);
+
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Cascadia Code SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "예약";
+            // 
+
+            this.panel1.Controls.Add(this.label1);
             // 
             #endregion
         }

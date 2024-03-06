@@ -50,7 +50,7 @@ namespace mdiProject.todo
             {
                 OracleConnection conn = DBINFO.openConnect();
 
-                string sql = "SELECT * FROM todo";
+                string sql = "select * from todo order by finishdate desc";
 
                 OracleDataAdapter adapter = new OracleDataAdapter();
                 DataSet ds = new DataSet();

@@ -73,6 +73,38 @@ namespace mdiProject.user
             }
             
         }
+
+        public List<string> selectUserId()
+        {
+            try
+            {
+                OracleConnection conn = DBINFO.openConnect();
+
+                string sql = "SELECT idx FROM users";
+
+                OracleDataAdapter adapter = new OracleDataAdapter();
+                DataSet ds = new DataSet();
+
+                OracleCommand oracleCommand = new OracleCommand(sql, conn);
+                adapter.SelectCommand = oracleCommand;
+
+                adapter.Fill(ds);
+
+                DBINFO.closeConnect();
+                List<string> result = new List<string>();
+                foreach(DataRow dr in ds.Tables[0].Rows)
+                {
+                    result.Add(dr["idx"].ToString());
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
     }
 
     

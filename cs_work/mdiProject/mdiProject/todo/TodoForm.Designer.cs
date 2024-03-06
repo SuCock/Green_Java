@@ -59,16 +59,7 @@
             this.panel1.Size = new System.Drawing.Size(339, 526);
             this.panel1.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Cascadia Code SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "예약";
-            // 
+           
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
