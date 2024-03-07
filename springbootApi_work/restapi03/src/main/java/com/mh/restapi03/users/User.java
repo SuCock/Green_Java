@@ -9,28 +9,31 @@ import java.time.LocalDateTime;
 @Entity
 @ToString
 @Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "users") // 테이블명 변경
+@Table(name = "users")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @Column(length = 50)
     private String username;
+
     @Column(length = 50, unique = true)
     private String email;
+
     private String password;
-    
-    // male = 0, female = 1
-    //@Enumerated(EnumType.ORDINAL)
-    // 문자로 들어가진다
+
+    // @Enumerated(EnumType.ORDINAL) male = 0 , female = 1
+    // @Enumerated(EnumType.STRING) => Male,feMale
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
     @JsonFormat(pattern = "yyyy/MM/dd HH:mm:ss")
     private LocalDateTime wdate;
+
 }

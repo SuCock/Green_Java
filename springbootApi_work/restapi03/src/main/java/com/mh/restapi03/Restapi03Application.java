@@ -9,8 +9,6 @@ public class Restapi03Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Restapi03Application.class, args);
-
 	}
-
 
 }

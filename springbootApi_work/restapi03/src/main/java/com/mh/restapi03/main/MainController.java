@@ -14,6 +14,7 @@ public class MainController {
 
     @PostMapping("greet")
     public String greet(String param){
-        return "greet " + param;
+        return "greet "+param;
     }
+
 }
