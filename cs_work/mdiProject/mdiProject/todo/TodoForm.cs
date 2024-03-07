@@ -77,6 +77,7 @@ namespace mdiProject.todo
                 todo.title = title;
                 todo.content = content;
                 todo.finishdate = finishdate;
+                todo.name = row["name"].ToString();
 
                 makeTodoPanel(10, y, todo, evenOdd % 2);
                 evenOdd += 1;
@@ -102,8 +103,6 @@ namespace mdiProject.todo
                 textBox1.Clear();
                 textBox2.Clear();
                 todoSelect();
-
-
             }
         }
         private void makeTodoPanel(int panelX, int panelY, Todo todo, int evenOdd)
@@ -135,6 +134,7 @@ namespace mdiProject.todo
             compete_chekbox.TabIndex = 17;
             compete_chekbox.Text = "완료";
             compete_chekbox.UseVisualStyleBackColor = true;
+            compete_chekbox.Click += compete_chekbox_Click;
             // 
             // finishDate_lb_value
             // 
@@ -206,6 +206,16 @@ namespace mdiProject.todo
             {
                 panel4.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             }
+
+            // nameLabel
+            // 
+            Label nameLable = new Label();
+            nameLable.Text = "할사람 : " + todo.name.ToString();
+            nameLable.AutoSize = true;
+            nameLable.Location = new Point(170, 45);
+
+            panel4.Controls.Add(nameLable);
+
             panel4.Controls.Add(compete_chekbox);
             panel4.Controls.Add(finishDate_lb_value);
             panel4.Controls.Add(content_lb_value);
@@ -234,6 +244,11 @@ namespace mdiProject.todo
             this.panel1.Controls.Add(this.label1);
             // 
             #endregion
+        }
+
+        private void compete_chekbox_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("눌렀음");
         }
     }
 }

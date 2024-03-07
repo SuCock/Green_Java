@@ -50,7 +50,7 @@ namespace mdiProject.todo
             {
                 OracleConnection conn = DBINFO.openConnect();
 
-                string sql = "select * from todo order by finishdate desc";
+                string sql = "SELECT * FROM todo t JOIN users u ON t.users_idx = u.idx WHERE t.status IS NULL ORDER BY t.idx DESC";
 
                 OracleDataAdapter adapter = new OracleDataAdapter();
                 DataSet ds = new DataSet();
