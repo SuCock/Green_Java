@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // 네트워크 환경에 따라서 늦게 들어올수도 있다.
+        // 통신이 끝나면 데이터변수 넣기(await이나 .then)
+        fetch("http://localhost:8083/users")
+            .then( res => {
+                return res.json();
+            })
+            .then( data => {
+                console.log(data);
+            })
+    </script>
+</head>
+<body>
+    <h1>aa</h1>
+</body>
+</html>

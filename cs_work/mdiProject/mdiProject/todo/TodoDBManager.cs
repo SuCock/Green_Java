@@ -36,21 +36,45 @@ namespace mdiProject.todo
             }
         }
 
-        public void update(Todo todo)
+        public bool update(string idx)
         {
+            try
+            {
+                OracleConnection conn = DBINFO.openConnect();
+                string sql = "UPDATE todo SET status = 'C' WHERE idx =  :idx";
+                OracleCommand cmd = new OracleCommand(sql, conn);
+                cmd.Parameters.Add(":idx", idx);
+                cmd.ExecuteNonQuery();
+
+                DBINFO.closeConnect();
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+                Console.WriteLine(e.Message);
+                return false;
+            }
         }
 
         public void delete(Todo todo)
         {
         }
 
-        public DataTable select()
+        public DataTable select(string status="")
         {
+            string sql = "";
             try
             {
                 OracleConnection conn = DBINFO.openConnect();
-
-                string sql = "SELECT * FROM todo t JOIN users u ON t.users_idx = u.idx WHERE t.status IS NULL ORDER BY t.idx DESC";
+                if (status.Equals("C"))
+                {
+                    sql = "SELECT * FROM todo t JOIN users u ON t.users_idx = u.idx WHERE t.status = 'C' ORDER BY t.idx DESC";
+                }
+                else
+                {
+                    sql = "SELECT * FROM todo t JOIN users u ON t.users_idx = u.idx WHERE t.status IS NULL ORDER BY t.idx DESC";
+                }
 
                 OracleDataAdapter adapter = new OracleDataAdapter();
                 DataSet ds = new DataSet();
@@ -72,6 +96,4 @@ namespace mdiProject.todo
             
         }
     }
-
-    
 }

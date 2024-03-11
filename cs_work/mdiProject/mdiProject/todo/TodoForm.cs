@@ -39,14 +39,16 @@ namespace mdiProject.todo
 
             comboBox1.SelectedText = "1";
 
-            panel1.Controls.Clear();
             // 할일관리
             todoSelect();
+            todoSelectComplete();
 
         }
 
         public void todoSelect()
         {
+            reservePanel.Controls.Clear();
+
             DataTable dataTable = todoDBManager.select();
 
             int y = 90;
@@ -85,6 +87,48 @@ namespace mdiProject.todo
             }
         }
 
+        public void todoSelectComplete()
+        {
+            compeletePanel.Controls.Clear();
+
+            DataTable dataTable = todoDBManager.select("C");
+
+            int y = 90;
+            int evenOdd = 1;
+            foreach (DataRow row in dataTable.Rows)
+            {
+                Console.WriteLine("row[idx] = " + row["idx"]);
+                Console.WriteLine(row["title"]);
+                Console.WriteLine(row["content"]);
+                Console.WriteLine(row["finishdate"]);
+
+                int idx = int.Parse(row["idx"].ToString());
+                string title = row["title"].ToString();
+                string content = row["content"].ToString();
+
+                DateTime finishdate = new DateTime(
+                                        int.Parse(row["finishdate"].ToString().Split('-', ' ')[0]) // 년도
+                                        , int.Parse(row["finishdate"].ToString().Split('-', ' ')[1]) // 월
+                                        , int.Parse(row["finishdate"].ToString().Split('-', ' ')[2]) // 일
+                                        );
+                //Console.WriteLine(finishdate.ToString("yyyy/MM/dd")); // 이방법을 쓰면 바로 date를 원하는 포맷으로 쓸 수 있다.
+
+
+
+                Todo todo = new Todo();
+
+                todo.idx = idx;
+                todo.title = title;
+                todo.content = content;
+                todo.finishdate = finishdate;
+                todo.name = row["name"].ToString();
+
+                makeTodoPanel(10, y, todo, evenOdd % 2, "compeletePanel");
+                evenOdd += 1;
+                y += 230;
+            }
+        }
+
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -105,7 +149,7 @@ namespace mdiProject.todo
                 todoSelect();
             }
         }
-        private void makeTodoPanel(int panelX, int panelY, Todo todo, int evenOdd)
+        private void makeTodoPanel(int panelX, int panelY, Todo todo, int evenOdd, string panel = "resevePanel")
         {
             #region 패널화면 구현
 
@@ -125,17 +169,7 @@ namespace mdiProject.todo
             content_lb = new Label();
             title_lb = new Label();
             //
-            // compete_chekbox
-            // 
-            compete_chekbox.AutoSize = true;
-            compete_chekbox.Location = new Point(197, 122);
-            compete_chekbox.Name = "compete_chekbox";
-            compete_chekbox.Size = new Size(48, 16);
-            compete_chekbox.TabIndex = 17;
-            compete_chekbox.Text = "완료";
-            compete_chekbox.UseVisualStyleBackColor = true;
-            compete_chekbox.Click += compete_chekbox_Click;
-            // 
+           
             // finishDate_lb_value
             // 
             finishDate_lb_value.AutoSize = true;
@@ -196,6 +230,18 @@ namespace mdiProject.todo
             title_lb.TabIndex = 11;
             title_lb.Text = "Title";
             //
+            // compete_chekbox
+            // 
+            compete_chekbox.AutoSize = true;
+            compete_chekbox.Location = new Point(197, 122);
+            compete_chekbox.Name = "compete_chekbox";
+            compete_chekbox.Size = new Size(48, 16);
+            compete_chekbox.TabIndex = 17;
+            compete_chekbox.Text = "완료";
+            // 변수 숨기기
+            compete_chekbox.Tag = todo.idx;
+            compete_chekbox.Click += Compete_chekbox_Click;
+            compete_chekbox.UseVisualStyleBackColor = true;
             // panel4
             // 
             Panel panel4 = new Panel();
@@ -216,7 +262,7 @@ namespace mdiProject.todo
 
             panel4.Controls.Add(nameLable);
 
-            panel4.Controls.Add(compete_chekbox);
+            
             panel4.Controls.Add(finishDate_lb_value);
             panel4.Controls.Add(content_lb_value);
             panel4.Controls.Add(title_lb_value);
@@ -228,7 +274,6 @@ namespace mdiProject.todo
             panel4.Size = new Size(270, 220);
             panel4.TabIndex = 1;
 
-            this.panel1.Controls.Add(panel4);
 
             // label1
             // 
@@ -238,17 +283,41 @@ namespace mdiProject.todo
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "예약";
-            // 
 
-            this.panel1.Controls.Add(this.label1);
             // 
-            #endregion
-        }
+            if (panel.Equals("resevePanel"))
+            {
+                panel4.Controls.Add(compete_chekbox);
+                // 
+                this.label1.Text = "예약";
+                this.reservePanel.Controls.Add(panel4);
+                this.reservePanel.Controls.Add(this.label1);
+            }
+            else
+            {
+                this.label2.Text = "완료";
+                this.compeletePanel.Controls.Add(panel4);
+                this.compeletePanel.Controls.Add(this.label2);
+            }
+                // 
+                #endregion
+            }
 
-        private void compete_chekbox_Click(object sender, EventArgs e)
+            private void Compete_chekbox_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("눌렀음");
+            CheckBox cb = sender as CheckBox;
+            MessageBox.Show(cb.Tag.ToString());
+            bool result = todoDBManager.update(cb.Tag.ToString());
+            if(result == true)
+            {
+                MessageBox.Show("완료");
+                todoSelect();
+                todoSelectComplete();
+            }
+            else
+            {
+                MessageBox.Show("실패");
+            }
         }
     }
 }
