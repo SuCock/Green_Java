@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends JpaRepository<User,Long> {
-    // findAll(), save(), findById()
+    // findAll(), save(), findById(), delete(), deleteAll()
 
     // select * from user where email = ?;
     public User findByEmail(String email);

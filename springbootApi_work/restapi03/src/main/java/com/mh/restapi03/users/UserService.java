@@ -50,7 +50,7 @@ public class UserService {
         if(emailUser == null){
             throw new UserException(ErrorCode.NOTFOUND);
         }
-        
+
         // 시간, 이름, 패스워드, 성별 변경 가능
         emailUser.setWdate(user.getWdate());
         emailUser.setUsername(user.getUsername());
@@ -63,6 +63,15 @@ public class UserService {
     }
 
     public void delete(Long id){
+        Optional<User> dbUser = userRepository.findById(id);
+        if(dbUser.isEmpty()){
+            throw new UserException(ErrorCode.NOTFOUND);
+        }
+        User getUser = dbUser.get();
+        userRepository.delete(getUser);
+    }
 
+    public void delete(){
+        userRepository.deleteAll();
     }
 }
