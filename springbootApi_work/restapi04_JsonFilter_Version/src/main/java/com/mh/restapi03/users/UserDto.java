@@ -2,10 +2,7 @@ package com.mh.restapi03.users;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -18,6 +15,7 @@ public class UserDto {
     private Long id;
 
     @NotBlank
+    @Pattern(regexp = "^[a-zA-Z0-0]*$", message = "사용자이름은 영어랑 숫자만 가능합니다.")
     private String username;
     //@Min(10) // 최소 글자의 길이가 10자리 이상이 들어와야한다
     @Size(min = 5, max = 50)
