@@ -10,6 +10,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -71,7 +73,7 @@ public class UserController {
     }
 
     @PostMapping()
-    public ResponseEntity<User> addUser(@RequestBody @Valid UserDto userDto){
+    public EntityModel<User> addUser(@RequestBody @Valid UserDto userDto){
 
         userDto.setWdate(LocalDateTime.now());
 
@@ -81,7 +83,16 @@ public class UserController {
 //        User user = UserDto.of(userDto);
         User dbuser = userService.regist( user );
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(dbuser);
+        EntityModel<User> entityModel = EntityModel.of(dbuser);
+        // 경로를 알려준다 "http://localhost:8083/users/users/10"
+        entityModel.add(
+                WebMvcLinkBuilder.linkTo(UserController.class)
+                        .slash("/users")
+                        .slash(dbuser.getId())
+                        .withSelfRel()
+        );
+
+        return entityModel;
     }
 
     @PutMapping()

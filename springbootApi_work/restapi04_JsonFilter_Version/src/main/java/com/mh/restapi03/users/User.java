@@ -34,6 +34,8 @@ public class User {
     @JsonIgnore // json에 안넘기겠다
     private String password;
 
+    private String grade;
+
     // @Enumerated(EnumType.ORDINAL) male = 0 , female = 1
     // @Enumerated(EnumType.STRING) => Male,feMale
     @Enumerated(EnumType.STRING)
