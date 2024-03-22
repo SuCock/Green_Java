@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 // MemberService는 UserDetailsService다.(is-a관계)
@@ -34,5 +35,9 @@ public class MemberService implements UserDetailsService {
         memberRepository.findByEmail(email);
         System.out.println("일로오나?");
         return null;
+    }
+
+    public List<Member> getAllMembers() {
+        return memberRepository.findAll();
     }
 }

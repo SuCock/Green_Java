@@ -1,11 +1,9 @@
 spring:
-  application:
-    name=restapi05:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/ksm?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8&serverTimezone=UTC
-    username: root
-    password: 1234
+    url: ENC(iHIvAt1N/cGggiGUnVs5SCn6ErjeVCBslW48BYyoSlorYM3rUD4/LrRub2MQenPeJW5MyiiFvTPwhli3gNcmNVdf34ohMXk1M7B7fhrMrYf8MxUeZbTovXBmf7aoBrwaqH3HRTLpY6eEAORrsVm2zrrHHKgYp6OedevEFROl5tJBV3FEgpACjw==)
+    username: ENC(iubVLR7Rhe304MBIKaAnbw==)
+    password: ENC(CryzAQZ4Xjpu5SNdR3Io5g==)
 
   jpa:
     database: mysql
@@ -21,9 +19,6 @@ spring:
   sql:
     init:
       mode: always
-
-  jwt:
-    secret: ksm1234ksm1234ksm1234ksm1234ksm1234ksm1234ksm1234
 
 jasypt:
   encryptor:

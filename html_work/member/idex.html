@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="index.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <script>
+        // 회원가입 -> 로그인 -> 회원목록
+        // 저장
+        function doSave() {
+            let username = document.getElementById("username");
+            let email = document.getElementById("email");
+            let password = document.getElementById("password");
+            let role = document.getElementById("role").value;
+            try {
+                fetch("http://localhost:8080/member/join", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(
+                        {
+                            username: username.value,
+                            email: email.value,
+                            password: password.value,
+                            role: role
+                        }
+                    )
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("서버 오류 발생");
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        console.log(data);
+                        alert("회원가입 되었습니다");
+                        username.value = "";
+                        email.value = "";
+                        password.value = "";
+                    })
+            } catch (e) {
+                console.log(e);
+                alert(e.status + " : " + e.message);
+                return;
+            }
+        }
+        // 로그인 -> token(jwt)
+        function doLogin() {
+            let loginemail = document.getElementById("loginemail");
+            let loginpassword = document.getElementById("loginpassword");
+            try {
+                fetch("http://localhost:8080/token", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(
+                        {
+                            email: loginemail.value,
+                            password: loginpassword.value,
+                        }
+                    )
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("서버 오류 발생");
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        localStorage.setItem("token", data);
+                        console.log(data);
+                        alert("로그인 되었습니다");
+                        loginemail.value = "";
+                        loginpassword.value = "";
+                    })
+            } catch (e) {
+                console.log(e);
+                alert(e.status + " : " + e.message);
+                return;
+            }
+        }
+        // 목록불러오기 member/list -> token없이는 불가능
+        function doList() {
+            let token = localStorage.getItem("token");
+
+            try {
+                fetch("http://localhost:8080/member/memberList", {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`
+                    },
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("서버 오류 발생");
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        document.getElementById("print").innerHTML=data;
+                    })
+            } catch (e) {
+                console.log(e);
+                alert(e.status + " : " + e.message);
+                return;
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row" style="height: 300px;">
+            <div class="col-6 col-back-join">
+                <h1>회원가입</h1>
+                <input id="username" type="text" class="form-control marginBottom" placeholder="username">
+                <input id="email" type="text" class="form-control marginBottom" placeholder="email">
+                <input id="password" type="password" class="form-control marginBottom" placeholder="password">
+                <select id="role" class="form-select marginBottom">
+                    <option>USER</option>
+                    <option>ADMIN</option>
+                </select>
+                <!-- <input id = "role/ type="text" class="form-control marginBottom" placeholder="role"> -->
+                <button class="btn btn-primary" onclick="doSave();">회원가입</button>
+            </div>
+            <div class="col-6 login">
+                <h1>로그인</h1>
+                <input id="loginemail" type="text" class="form-control marginBottom" placeholder="email">
+                <input id="loginpassword" type="password" class="form-control marginBottom" placeholder="password">
+                <button class="btn btn-primary" onclick="doLogin();">로그인</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-back-memberList">
+                <h1>회원목록</h1>
+                <button class="btn btn-primary marginBottom" onclick="doList();">회원목록 보기</button>
+                <div id="print">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
