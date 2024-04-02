@@ -30,11 +30,4 @@ public class Member {
     // USER, ADMIN
     @Enumerated(EnumType.STRING)
     private Role role;
-
-    // 작성일자 자동 처리(insert)
-    @CreatedDate
-    private LocalDateTime writeDate;
-    // 수정일자 자동 처리(update, delete)
-    @LastModifiedDate
-    private LocalDateTime modifyDate;
 }

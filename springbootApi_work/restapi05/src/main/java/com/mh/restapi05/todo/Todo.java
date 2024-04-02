@@ -14,6 +14,6 @@ public class Todo {
 
     private String todo;
 
-    @ManyToOne // joinColmn을 안해도 memberId를 가져올 수 있다
+    @ManyToOne // joinColumn 을 안해도 memberId를 가져올 수 있다
     private Member member;
 }

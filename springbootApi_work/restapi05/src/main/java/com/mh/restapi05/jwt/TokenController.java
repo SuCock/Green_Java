@@ -26,7 +26,7 @@ public class TokenController {
         System.out.println(authentication);
         // 로그인 되어있나
         System.out.println(authentication.isAuthenticated());
-        // jws.getPayload().get("username") 가죠오는 이름
+        // jws.getPayload().get("username") 가져오는 이름
         System.out.println(authentication.getPrincipal());
         return "loginTest";
     }
@@ -35,11 +35,11 @@ public class TokenController {
     public String token(@RequestBody TokenDto tokenDto){
         System.out.println("email = " + tokenDto.getEmail());
         System.out.println("password = " + tokenDto.getPassword());
-        Member dbemeber = memberRepository.findByEmailAndPassword(tokenDto.getEmail(), tokenDto.getPassword());
-        if(dbemeber == null){
+        Member dbmember = memberRepository.findByEmailAndPassword(tokenDto.getEmail(), tokenDto.getPassword());
+        if(dbmember == null){
             throw new RuntimeException("회원가입이 안되어져 있습니다.");
         }
-        return tokenManager.generateToken(dbemeber);
+        return tokenManager.generateToken(dbmember);
 //        Member member = Member.builder()
 //                .email("aaa@naver.com")
 //                .id(1l)
@@ -47,13 +47,5 @@ public class TokenController {
 //                .role(Role.USER)
 //                .build();
 //        return tokenManager.generateToken(dbemeber);
-    }
-
-    @GetMapping("/valid")
-    public String valid(HttpServletRequest request){
-        String auth = request.getHeader("Authorization");
-        System.out.println(auth);
-//        tokenManager.validateToken("eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJrc210b2tlbiIsImlkIjoxLCJ1c2VybmFtZSI6Iu2Zjeq4uOuPmSIsInJvbGUiOiJVU0VSIiwiZW1haWwiOiJhYWFAbmF2ZXIuY29tIiwiZXhwIjoxNzEwOTg0MTUxfQ.6COjpMDV9ku9OjH9E05TJCyVq1xzE80fiuBUrot55edxeV9fz_fQo0xn81bHQiDh");
-        return "valid";
     }
 }

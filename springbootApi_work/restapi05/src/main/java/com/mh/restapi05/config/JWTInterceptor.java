@@ -29,11 +29,24 @@ public class JWTInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         System.out.println("일로오나");
         String token = request.getHeader("Authorization");
+        // 토큰이 없어도 허용한다.
+        if(
+                request.getRequestURI().contains("swagger")
+                    || request.getRequestURI().contains("common")
+                    || request.getRequestURI().contains("file")
+                    || request.getRequestURI().contains("error")
+                    || request.getRequestURI().contains("main")
+                    || request.getRequestURI().contains("h2")
+        )
+        {
+            return true;
+        }
 
         // java web token(jwt)이 없거나 유효성이 확인이 안되면 예외처리로 진행을 못하도록 막는다
         if(token == null || !token.startsWith("Bearer")){
             System.out.println("token이 없습니다");
-            throw new RuntimeException("jwt 토큰 발행 후 진행해라");
+            //throw new RuntimeException("jwt 토큰 발행 후 진행해라");
+            return true;
         }
         try {
             Jws<Claims> jws = tokenManager.validateToken(token.substring("Bearer ".length()));

@@ -17,7 +17,14 @@ public class WebCors implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(jwtInterceptor)
                 .addPathPatterns("/**")
-                .excludePathPatterns("/token", "/member/join");
+                .excludePathPatterns("/token"
+                        , "/member/join"
+                        , "/h2-console/**"
+                        , "/main/**"
+                        , "/error"
+                        , "index.html"
+                        , "/"
+                );
     }
 
     @Override
