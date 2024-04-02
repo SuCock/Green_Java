@@ -3,6 +3,7 @@ package com.mh.restapi05.thymeleaf.member;
 import com.mh.restapi05.member.Member;
 import com.mh.restapi05.member.MemberDto;
 import com.mh.restapi05.member.MemberRepository;
+import com.mh.restapi05.member.Role;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
@@ -40,8 +41,15 @@ public class MainMemberController {
                     .username(memberDto.getUsername())
                     .password(memberDto.getPassword())
                     .email(memberDto.getEmail())
+                    .role(Role.USER)
                     .build()
         );
         return "redirect:/main/member";
+    }
+
+    @GetMapping("/login")
+    public String login(MemberDto memberDto){
+
+        return "member/login";
     }
 }

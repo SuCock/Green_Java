@@ -27,13 +27,22 @@ public class WebMvcConfig {
 //        // 스프링 부트 3버전 이상부터는 람다문법을 써야지만 에러가 안난다ㅡㅡ+
 //        // post방식과 put방식, delete방식을 사용할 때 csrf토큰을 사용하지 않겠다.
         http.csrf(qwe -> qwe.disable());
-
+        http.formLogin(
+                fr -> fr.loginPage("/main/login")
+                        .defaultSuccessUrl("/main/main")
+                        .failureUrl("/main/login?error")
+        );
         http
 
                 .authorizeRequests(
-//                        req -> req.requestMatchers("/member", "/test", "/token", "/valid").permitAll() // 이경로는 모두 허용한다
-//                                .anyRequest().authenticated()
-                        req -> req.anyRequest().permitAll() // 모든요청
+                        req -> req.requestMatchers(
+                                "/main/login"
+                                        , "/main/login?error"
+                                        , "/main/join"
+                                        , "/error"
+                                ).permitAll() // 이경로는 모두 허용한다
+                                .anyRequest().authenticated()
+//                        req -> req.anyRequest().permitAll() // 모든요청
                 );
 
                 // 스프링시큐리티에서 필터다는 법
