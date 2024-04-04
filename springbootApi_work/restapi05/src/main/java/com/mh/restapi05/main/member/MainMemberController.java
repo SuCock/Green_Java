@@ -1,17 +1,16 @@
-package com.mh.restapi05.thymeleaf.member;
+package com.mh.restapi05.main.member;
 
 import com.mh.restapi05.member.Member;
 import com.mh.restapi05.member.MemberDto;
 import com.mh.restapi05.member.MemberRepository;
 import com.mh.restapi05.member.Role;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -21,6 +20,7 @@ import java.util.List;
 public class MainMemberController {
 
     private final MemberRepository memberRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @GetMapping("/member")
     public String member(Model model){
@@ -39,7 +39,8 @@ public class MainMemberController {
         memberRepository.save(
             Member.builder()
                     .username(memberDto.getUsername())
-                    .password(memberDto.getPassword())
+                    // dto에있는 passwrod를 인코딩해라
+                    .password(passwordEncoder.encode(memberDto.getPassword()))
                     .email(memberDto.getEmail())
                     .role(Role.USER)
                     .build()

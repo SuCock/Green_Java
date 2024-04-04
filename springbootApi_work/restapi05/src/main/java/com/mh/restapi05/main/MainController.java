@@ -1,4 +1,4 @@
-package com.mh.restapi05.thymeleaf;
+package com.mh.restapi05.main;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
