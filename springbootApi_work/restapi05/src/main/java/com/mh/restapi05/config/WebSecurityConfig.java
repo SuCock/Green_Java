@@ -35,12 +35,19 @@ public class WebSecurityConfig {
         http.formLogin(
                 fr -> fr.loginPage("/main/login")
                         .defaultSuccessUrl("/main/main")
+                        .successForwardUrl("/main/main")
                         // 로그인 html에서 name과 이름이 같아야한다
                         // 이메일과 비밀번호를 받겠다
                         .usernameParameter("email")
                         .passwordParameter("password")
                         .failureUrl("/main/login?error")
         );
+
+        // 로그아웃 함수를 넣어준다(람다함수)
+        // 로그아웃 할 url과 로그아웃이 성공했을 떄 이동할 페이지
+        http.logout(logout -> logout.logoutUrl("/main/logout")
+                .logoutSuccessUrl("/main/main"));
+
         http
                 .authorizeRequests(
                         req ->

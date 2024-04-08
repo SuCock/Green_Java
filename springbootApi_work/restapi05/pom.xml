@@ -106,6 +106,12 @@
 			<artifactId>p6spy-spring-boot-starter</artifactId>
 			<version>1.9.1</version>
 		</dependency>
+		<!-- 타임리프와 관련되어있는 스프링시큐리티-->
+		<!-- <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"></html> html선언문을 같이 써줘야한다-->
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity6</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head th:fragment="head(title)">
     <meta charset="UTF-8">
@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -50,8 +51,21 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/main/join">Join</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/main/signIn">SignIn</a>
+                            <!-- 로그인 안했을 때 -->
+                            <li class="nav-item" sec:authorize="isAnonymous()">
+                                <a class="nav-link" href="/main/signIn">LogIn</a>
+                            </li>
+                            <!-- 로그인 했을 때 -->
+                            <li class="nav-item" id="logout-btn" sec:authorize="isAuthenticated()">
+                                <span class="nav-link" style="cursor:pointer">Logout</span>
+                                <!-- <a class="nav-link" id="logout" href=#>LogOut</a> -->
+                            </li>
+                            <li class="nav-item" sec:authorize="isAuthenticated()">
+                                <div class="nav-link" style="flex-direction: row;">
+                                    <span>환영합니다! </span>
+                                    <span sec:authentication="principal.username"></span>
+                                    <span>님</span>
+                                </div>
                             </li>
                         </ul>
                         <form class="d-flex" role="search">
@@ -66,3 +80,28 @@
 </body>
 
 </html>
+<script th:fragment="myscript">
+    const doA = () => {
+        Swal.fire({
+            title: "로그아웃 하실건가요?",
+            text: "로그아웃시 메인페이지로 돌아갑니다.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "로그아웃"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "로그아웃 성공!",
+                    text: "메인페이지로 돌아갑니다!",
+                    icon: "success",
+                })
+                location.href = "/main/main";
+            } else {
+                Swal.fire("Cancelled", "취소했습니다.", "error");
+            }
+        });
+    }
+    document.getElementById('logout-btn').addEventListener('click', doA);
+</script>
