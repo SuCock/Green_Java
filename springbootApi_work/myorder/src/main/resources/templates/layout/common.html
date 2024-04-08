@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <!-- Basic -->
@@ -39,7 +39,7 @@
         <img src="images/hero-bg.jpg" alt="">
     </div>
     <!-- header section starts -->
-    <header class="header_section">
+    <header th:fragment="commHeader(menu)" class="header_section">
         <div class="container">
             <nav class="navbar navbar-expand-lg custom_nav-container ">
                 <a class="navbar-brand" href="/">
@@ -1338,6 +1338,7 @@
 <!-- Google Map -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
 </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- End Google Map -->
 
 </body>
