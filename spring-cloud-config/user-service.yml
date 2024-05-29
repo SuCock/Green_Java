@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: user-service
+  datasource:
+    username: root
+    password: "{cipher}06e5506b09f5735a3c8dc3cb7b6f315f4c5d3fd3a83c2d3fd107c457725d1277"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/pmh?characterEncoding=UTF-8&serverTimezone=UTC
+  sql:
+    init:
+      platform: mysql
+
+mh:
+  value: actuator
+
+mybatis:
+  # resources/mapper/ ? ?? ?? xml ??
+  mapper-locations: mapper/*.xml
+
+server:
+  port: 8083
+
+eureka:
+  #  instance:
+  #    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+
+token:
+  expiration_time: 86400000
+  secret: mh1004mh1004mh1004mh1004mh1004mh1004mh1004mh1004mh1004mh1004mh1004mh1004mh1004mh1004mh1004mh1004mh1004mh1004mh1004mh1004mh1004mh1004
+
+gateway:
+  ip: 127.0.0.1
