@@ -1,0 +1,13 @@
+FROM bellsoft/liberica-openjdk-alpine:17    
+
+COPY app.jar app.jar
+
+EXPOSE 8080
+
+# yml 파일 선택
+# application.yml -> 개인
+# application-dev.yml -> 테스트서버
+# java -jar -Dspring.profiles.active=dev your_application.jar
+
+ENTRYPOINT ["java","-jar","-Dspring.profiles.active=dev","/app.jar"]
+

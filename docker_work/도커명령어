@@ -1,0 +1,16 @@
+# mysql 도커에 설치
+docker run -d --name mysqlcontainer -e MYSQL_ROOT_PASSWORD=1234 -p 3306:3306 -v d:/mysql:/var/lib/mysql mysql
+
+
+# 현재 사용중인 mysqlcontainer 정지
+docker stop mysqlcontainer
+# mysqlcontainer를 mysqljava 네트워크에 연결
+docker network connect javamysql mysqlcontainer
+# mysqlcontainer를 시작
+docker start mysqlcontainer
+
+# 이미지 생성
+docker build -t app .
+
+# 컨테이너 생성
+docker run -d --name app -p 8080:8080 --network mysqljava app

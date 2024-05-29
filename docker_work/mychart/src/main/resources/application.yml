@@ -1,0 +1,43 @@
+spring:
+  messages:
+    basename: messages
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ksm?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: 1234
+
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create-drop
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+  sql:
+    init:
+      mode: always
+multipart:
+  max-file-size: 10MB
+  max-request-size: 10MB
+  file-size-threshold: 0
+
+kakao:
+  client:
+    id: 6890093e1db4f8b5a83186208edbc0f9
+    secret: Harlgb6Hv5RAWMOhzfgbOr2AcuNzGjkW
+    redirect: http://localhost:8080/oauth/kakao/callback
+
+toss:
+  client:
+    id: test_ck_0RnYX2w5327p75kZj9PPVNeyqApQ
+    secret: test_sk_EP59LybZ8Bd5d1AJpNABV6GYo7pR

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ksm.userservice.user.UserRepository">
+    <insert id="save" parameterType="com.ksm.userservice.user.User">
+        INSERT INTO users
+        (user_email,user_name,user_password)
+        VALUES
+        (#{user_email},#{user_name},#{user_password})
+    </insert>
+</mapper>

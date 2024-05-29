@@ -1,0 +1,14 @@
+# node컨테이너를 만들 때 mapapp이라는 이름으로 3000포트와 javamysql네트워크를 사용하겠다
+docker run -dit --name mapapp -p 3000:3000 --network javamysql node
+
+# mapapp os로 이동(리눅스) 
+docker exec -it mapapp bash
+
+# 윈도우에 있는 mymap을 리눅스로 이동시킬것 이다
+# 배포할 떄 node_modules는 용량이 너무 커서 삭제하기 -> npm install을 하면 다시 생긴다
+# 파일들 복사하기
+docker cp . mapapp:/src
+
+# 이동해서 npm install을 하고 실행되는지 확인해야한다
+docker exec -it mapapp bash
+
